@@ -1,5 +1,5 @@
 # Portafolio de Jeremías San Martín
-####Desarrollador Web
+#Desarrollador Web
 
 Hola mi nombre es Jeremías san Martín, soy desarrollador web independiente.
 
@@ -9,7 +9,7 @@ Trabajo con las tegnologias: * HTML 5, CSS 3 y JavaScript*
 
 En este repositorio estare enseñando algunos de mis proyectos y asi usted pueda conocer el maravilloso alcanse de la tecnologia web.
 
-Mi web personal es: [gscdesigns.net](https://gscdesigns.net/"GSC Diseños")
+Mi web personal es: https://gscdesigns.net/"GSC Diseños"
 
 Portafolio:  https://jerexxypunto.github.io/
 
