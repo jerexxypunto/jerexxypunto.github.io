@@ -2,23 +2,32 @@ extends pug/_template.pug
 block contenido
     .portafolio-gal.container.text-center.mt-5
         .galeria 
+            h2 Galeria
             .galeria__head 
                 form.mt-4.mb-4
-                    input#barra-de-busqueda(type="text", placeholder="Buscar")
+                    input#barra-de-busqueda(type="text", placeholder="Busca una caracteristica")
                 ul#enlaces 
                     li
                         a.active  Todo
                     li 
-                        a Gato
+                        a Fruta
                     li  
-                        a Perro
+                        a Planta
+                    li 
+                        a Animal 
+                    li 
+                        a Paisaje
             .galeria__grid 
-                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
-                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
-                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
-                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
-                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
-                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
+                +Muuri-item('https://i.imgur.com/ORxpxCd.jpg','fruta', 'ciruela albaricoque fruta frutas ciruela naturaleza')
+                +Muuri-item('https://i.imgur.com/4bQjYWz.jpg','fruta','ciruela albaricoque fruta frutas ciruela naturaleza')
+                +Muuri-item('https://i.imgur.com/ECj1lAE.jpg','fruta', 'ciruela albaricoque fruta frutas ciruela naturaleza')
+                +Muuri-item('https://i.imgur.com/OJ6TEm3.jpg', 'planta', 'paisaje planta cerca naturaleza')
+                +Muuri-item('https://i.imgur.com/8oVP9Jo.jpg', 'paisaje', ' planta lejos naturaleza')
+                +Muuri-item('https://i.imgur.com/EtyAldW.jpg', 'planta', ' planta cerca flor naturaleza')
+                +Muuri-item('https://i.imgur.com/SGdkUeN.jpg', "paisaje", "lejos planta paisaje humano hombre naturaleza")
+                +Muuri-item('https://i.imgur.com/NDg4KhU.jpg', "animal", "cerca gato gatitos animal naturaleza")
+                +Muuri-item('https://i.imgur.com/xWwBKbC.jpg', "animal", "cerca gato gatitos animal naturaleza")
+                +Muuri-item('https://i.imgur.com/PAI5PCW.jpg', "animal", "cerca gato gatitos animal naturaleza")
     footer 
         include pug/_footer.pug
     script(src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js")
