@@ -87,6 +87,7 @@ body {
   justify-content: space-around;
   max-width: 500px;
   margin: 0 auto;
+  padding: 0;
 }
 .galeria__head ul li a {
   font-weight: bolder;
