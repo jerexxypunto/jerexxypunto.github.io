@@ -1,0 +1,28 @@
+extends pug/_template.pug
+block contenido
+    .portafolio-gal.container.text-center.mt-5
+        .galeria 
+            .galeria__head 
+                form.mt-4.mb-4
+                    input#barra-de-busqueda(type="text", placeholder="Buscar")
+                ul#enlaces 
+                    li
+                        a.active  Todo
+                    li 
+                        a Gato
+                    li  
+                        a Perro
+            .galeria__grid 
+                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
+                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
+                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
+                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
+                +Muuri-item('https://i.imgur.com/q88154m.jpg','gato', 'animal gato peludo')
+                +Muuri-item('https://i.imgur.com/Hvep7LU.jpg','perro','animal perro patineta')
+    footer 
+        include pug/_footer.pug
+    script(src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js")
+    script(src="https://gscdesigns.net/fontawesome/js/all.js")
+    script(src="js/galeria.js") 
+

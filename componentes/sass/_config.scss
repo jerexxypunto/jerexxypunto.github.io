@@ -1,0 +1,35 @@
+:root{
+    --text-font:'Open Sans', sans-serif;
+    --title-font:'Roboto Slab', serif;
+}
+
+*{
+    font-family:var(--text-font);
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--title-font);
+    font-weight: bold !important;
+}
+body{
+    background-color: #f3f3f3 !important;
+}
+.max-w-800{
+    max-width: 800px;
+    margin: 0 auto;
+    @media screen and(max-width:810px){
+        width: 90%;
+        margin: 0 auto;
+
+    }
+}
+.marck-container{
+    p{
+        margin:0;
+        padding:0;
+    }
+    svg{
+        font-size:4rem;
+    }
+}

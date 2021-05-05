@@ -1,0 +1,71 @@
+extends pug/_template.pug
+block contenido
+    .home.max-w-800.mt-5 
+        p.text-center Hola mi nombre es Jeremías san Martín, soy desarrollador web independiente.
+        .row.home__info
+            .col-12.col-md-6
+                p Manejo de tegnologias:
+        
+            .col-12.col-md-6 
+                .d-flex.justify-content-around
+                    +icon-Marck('HTML 5', 'fa-html5','#E96228')
+                    +icon-Marck('CSS 3', 'fa-css3','#15AABF')
+                    +icon-Marck('JavaScript', 'fa-js','#E8D44D')
+        .home__content.mt-4
+            p La tegnologia web tiene mucho potencial, con ella puede hacer desde una sensilla pagina web para informar 
+                | o algo mas complejo como tu propia tienda virtual o incluso un app, ¡sí una app! como esas que descargas en tu telefono celular.
+
+            p Permiteme mostrarte algunos de mis proyectos:
+            .home__categorias
+                section.activo
+                    +windowIco()
+                    p Sitio Web
+     
+                section
+                    +cubeIco()
+                    p Aplicación Web
+                section
+                    +penIco()
+                    p Dibujo en CSS 
+            .home__categorias--contenido.mt-5 
+                section.activo
+                    h4 Sitio Web
+                    span.cerrar 
+                        i(class="fa fa-times")
+                    .container 
+                        .row 
+                            .col-12.col-md-6.mb-3
+                                figure 
+                                    img(src="https://i.imgur.com/TlSEB20.png")
+                                    figcaption.text-center 
+                                        a(href="#") www.gscdesigns.net
+                                     
+                            .col-12.col-md-6.mb-3
+                                figure 
+                                    img(src="https://i.imgur.com/TlSEB20.png")
+                                    figcaption.text-center 
+                                        a(href="#") www.gscdesigns.net
+                                     
+                            .col-12.col-md-6.mb-3
+                                figure 
+                                    img(src="https://i.imgur.com/TlSEB20.png")
+                                    figcaption.text-center 
+                                        a(href="#") www.gscdesigns.net
+                                     
+                section
+                    h4 Aplicación Web
+                    span.cerrar 
+                        i(class="fa fa-times")
+                section
+                    h4 Dibujo en CSS 
+                    span.cerrar 
+                        i(class="fa fa-times")
+    footer 
+        include pug/_footer.pug
+    script(src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js")
+    script(src="https://gscdesigns.net/fontawesome/js/all.js")
+    script(src="js/home.js") 
+        
+
+
