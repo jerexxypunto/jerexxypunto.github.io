@@ -129,6 +129,43 @@ body {
   border-radius: 8px;
 }
 
+#modal {
+  position: fixed;
+  top: 2.5vh;
+  width: 95vw;
+  height: calc(100vh - 5vh);
+  z-index: 20;
+  border: none;
+  border-radius: 10px;
+}
+#modal .modal-cabezera {
+  display: flex;
+  justify-content: flex-end;
+}
+#modal .modal-cabezera p {
+  position: relative;
+  left: -50px;
+  font-size: 3rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+#modal .modal-img picture {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  position: relative;
+  top: -59px;
+}
+#modal .modal-img picture img {
+  width: 100%;
+  height: 80vh;
+  object-fit: contain;
+}
+#modal .modal-img picture span {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
 .home {
   color: #9b9b9b;
   position: relative;
@@ -254,6 +291,9 @@ body {
 .home__categorias--contenido section .container {
   display: none;
   margin-top: 40px;
+}
+.home__categorias--contenido section .container figure:hover {
+  box-shadow: 0 0 0 1px;
 }
 .home__categorias--contenido section .container figure img {
   width: 100%;

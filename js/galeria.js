@@ -4,6 +4,26 @@ const grid = new Muuri('.galeria__grid', {
     }
 });
 
+// Detectar items
+const items = document.querySelectorAll(".galeria__grid .item");
+const modal_close = document.querySelector("#modal .modal-cabezera p");
+
+const modal_img = document.querySelector("#modal .modal-img picture img");
+
+let src_modal;
+items.forEach(item => {
+    item.addEventListener('click',()=>{
+        src_modal = item.children[0].children[0].getAttribute("src");
+        modal_img.setAttribute('src', src_modal);
+        document.querySelector("#modal").setAttribute('open', true);
+    });
+});
+
+// cerrar modal
+modal_close.addEventListener('click',()=>{
+    document.querySelector("#modal").removeAttribute('open');
+});
+
 window.addEventListener('load', ()=>{
     grid.refreshItems().layout;
     document.querySelector(".galeria__grid").classList.add('imagenes-cargadas');

@@ -122,6 +122,9 @@
                   display: none;
                   margin-top: 40px;
                     figure{
+                        &:hover{
+                            box-shadow: 0 0 0 1px;
+                        }
                         img{
                         width: 100%;
                         height: 100%;
