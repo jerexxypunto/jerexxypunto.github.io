@@ -119,6 +119,16 @@ body {
   margin: 10px;
   width: calc(33.33% - 20px);
 }
+@media screen and (max-width: 600px) {
+  .galeria__grid .item {
+    width: calc(50% - 20px);
+  }
+}
+@media screen and (max-width: 400px) {
+  .galeria__grid .item {
+    width: calc(100% - 20px);
+  }
+}
 .galeria__grid .item-contenido {
   position: relative;
 }
@@ -131,12 +141,23 @@ body {
 
 #modal {
   position: fixed;
+  display: none;
   top: 2.5vh;
   width: 95vw;
   height: calc(100vh - 5vh);
   z-index: 20;
   border: none;
   border-radius: 10px;
+  transform: scale(0.5);
+  transition: 0.3s ease;
+  background-color: #fff;
+  left: 2.5vw;
+  opacity: 0;
+  padding: 5vh 3vw;
+}
+#modal.aparecer {
+  opacity: 1;
+  transform: scale(1);
 }
 #modal .modal-cabezera {
   display: flex;
@@ -152,6 +173,7 @@ body {
 #modal .modal-img picture {
   display: grid;
   grid-template-columns: 30px 1fr 30px;
+  column-gap: 10px;
   position: relative;
   top: -59px;
 }

@@ -1,27 +1,71 @@
+// Esta variable inicia una instancia del objeto Muuri
 const grid = new Muuri('.galeria__grid', {
     layout: {
         rounding: true
     }
 });
-
-// Detectar items
-const items = document.querySelectorAll(".galeria__grid .item");
+// Esta variable contiene el botón de cierre del modal
 const modal_close = document.querySelector("#modal .modal-cabezera p");
 
+// Esta variable contiene la etiqueta <img> dentro del modal
 const modal_img = document.querySelector("#modal .modal-img picture img");
 
+// Esta variable contiene un array con las flechas del slider en el modal
+const arrows = document.querySelectorAll("#modal .modal-img picture span");
+
+// Esta variable contiene un array con todos los items de la galeria Muuri
+const items = document.querySelectorAll(".galeria__grid .item");
+
+// Inicializo la variable src_modal
 let src_modal;
-items.forEach(item => {
+
+// Inicializo array src_modal_array
+let src_modal_array = [];
+
+let indice_modal;
+
+// Inyecyo en un array todos los valores del atributo src en los elementos img de la galeria Muuri
+for (let i = 0; i < items.length; i++) {
+    src_modal_array.push(items[i].children[0].children[0].getAttribute("src"));
+}
+arrows[0].addEventListener('click',()=>{
+    indice_modal === 0 ? indice_modal = src_modal_array.length - 1 : indice_modal--;
+    modal_img.setAttribute('src', src_modal_array[indice_modal]);
+    document.querySelector("#modal").style.display = "block";
+    setTimeout(() => {
+        document.querySelector("#modal").classList.add("aparecer");
+    }, 300);
+    console.log(indice_modal);
+});
+arrows[1].addEventListener('click',()=>{
+
+    indice_modal === src_modal_array.length - 1 ? indice_modal = 0 : indice_modal++;
+    modal_img.setAttribute('src', src_modal_array[indice_modal]);
+    document.querySelector("#modal").style.display = "block";
+    setTimeout(() => {
+        document.querySelector("#modal").classList.add("aparecer");
+    }, 100);
+    console.log(indice_modal);
+});
+
+items.forEach((item, index) => {
     item.addEventListener('click',()=>{
-        src_modal = item.children[0].children[0].getAttribute("src");
-        modal_img.setAttribute('src', src_modal);
-        document.querySelector("#modal").setAttribute('open', true);
+        indice_modal = index;
+        modal_img.setAttribute('src', src_modal_array[indice_modal]);
+        document.querySelector("#modal").style.display = "block";
+        setTimeout(() => {
+            document.querySelector("#modal").classList.add("aparecer");
+    }, 100);
+        console.log(index);
     });
 });
 
 // cerrar modal
 modal_close.addEventListener('click',()=>{
-    document.querySelector("#modal").removeAttribute('open');
+    document.querySelector("#modal").classList.remove("aparecer");
+    setTimeout(() => {
+        document.querySelector("#modal").style.display = "none";
+    }, 100);
 });
 
 window.addEventListener('load', ()=>{
