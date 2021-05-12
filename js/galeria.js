@@ -16,11 +16,15 @@ const arrows = document.querySelectorAll("#modal .modal-img picture span");
 // Esta variable contiene un array con todos los items de la galeria Muuri
 const items = document.querySelectorAll(".galeria__grid .item");
 
+const desc_modal = document.querySelector("#modal .modal-des p");
+
 // Inicializo la variable src_modal
 let src_modal;
 
 // Inicializo array src_modal_array
 let src_modal_array = [];
+// 
+let src_modal_array_contenido = [];
 
 let indice_modal;
 
@@ -28,9 +32,13 @@ let indice_modal;
 for (let i = 0; i < items.length; i++) {
     src_modal_array.push(items[i].children[0].children[0].getAttribute("src"));
 }
+for (let i = 0; i < items.length; i++) {
+    src_modal_array_contenido.push(items[i].getAttribute("data-description"));
+}
 arrows[0].addEventListener('click',()=>{
     indice_modal === 0 ? indice_modal = src_modal_array.length - 1 : indice_modal--;
     modal_img.setAttribute('src', src_modal_array[indice_modal]);
+    desc_modal.innerText = src_modal_array_contenido[indice_modal];
     document.querySelector("#modal").style.display = "block";
     setTimeout(() => {
         document.querySelector("#modal").classList.add("aparecer");
@@ -41,6 +49,7 @@ arrows[1].addEventListener('click',()=>{
 
     indice_modal === src_modal_array.length - 1 ? indice_modal = 0 : indice_modal++;
     modal_img.setAttribute('src', src_modal_array[indice_modal]);
+    desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
     document.querySelector("#modal").style.display = "block";
     setTimeout(() => {
         document.querySelector("#modal").classList.add("aparecer");
@@ -51,6 +60,7 @@ arrows[1].addEventListener('click',()=>{
 items.forEach((item, index) => {
     item.addEventListener('click',()=>{
         indice_modal = index;
+        desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
         modal_img.setAttribute('src', src_modal_array[indice_modal]);
         document.querySelector("#modal").style.display = "block";
         setTimeout(() => {
