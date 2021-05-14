@@ -31,44 +31,7 @@ let src_modal_array_contenido = [];
 
 let indice_modal;
 
-// Inyecyo en un array todos los valores del atributo src en los elementos img de la galeria Muuri
-for (let i = 0; i < items.length; i++) {
-    src_modal_array.push(items[i].children[0].children[0].getAttribute("src"));
-}
-for (let i = 0; i < items.length; i++) {
-    src_modal_array_contenido.push(items[i].getAttribute("data-description"));
-}
-arrows[0].addEventListener('click',()=>{
-    indice_modal === 0 ? indice_modal = src_modal_array.length - 1 : indice_modal--;
-    modal_img.setAttribute('src', src_modal_array[indice_modal]);
-    desc_modal.innerText = src_modal_array_contenido[indice_modal];
-    document.querySelector("#modal").style.display = "block";
-    setTimeout(() => {
-        document.querySelector("#modal").classList.add("aparecer");
-    }, 300);
-});
-arrows[1].addEventListener('click',()=>{
 
-    indice_modal === src_modal_array.length - 1 ? indice_modal = 0 : indice_modal++;
-    modal_img.setAttribute('src', src_modal_array[indice_modal]);
-    desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
-    document.querySelector("#modal").style.display = "block";
-    setTimeout(() => {
-        document.querySelector("#modal").classList.add("aparecer");
-    }, 100);
-});
-
-items.forEach((item, index) => {
-    item.addEventListener('click',()=>{
-        indice_modal = index;
-        desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
-        modal_img.setAttribute('src', src_modal_array[indice_modal]);
-        document.querySelector("#modal").style.display = "block";
-        setTimeout(() => {
-            document.querySelector("#modal").classList.add("aparecer");
-    }, 100);
-    });
-});
 
 // cerrar modal
 modal_close.addEventListener('click',()=>{
@@ -85,6 +48,19 @@ window.addEventListener('load', ()=>{
     // agregar listener para enlaces
     const enalces = document.querySelectorAll('#enlaces a');
 
+    items.forEach((Element, index) => {
+        if (Element.classList.contains("muuri-item-shown")) {
+            img_shows.push(items[index]);
+        }
+    });
+    // Inyecyo en un array todos los valores del atributo src en los elementos img de la galeria Muuri
+    for (let i = 0; i < img_shows.length; i++) {
+        src_modal_array.push(img_shows[i].children[0].children[0].getAttribute("src"));
+    }
+    for (let i = 0; i < img_shows.length; i++) {
+        src_modal_array_contenido.push(img_shows[i].getAttribute("data-description"));
+    }
+    
     enalces.forEach((item) => {
         item.addEventListener('click', (event) => {
             event.preventDefault();
@@ -106,6 +82,47 @@ window.addEventListener('load', ()=>{
                         img_shows.push(items[index]);
                     }
                 });
+                src_modal_array = [];
+                src_modal_array_contenido = [];
+                // Inyecyo en un array todos los valores del atributo src en los elementos img de la galeria Muuri
+                for (let i = 0; i < img_shows.length; i++) {
+                    src_modal_array.push(img_shows[i].children[0].children[0].getAttribute("src"));
+                }
+                for (let i = 0; i < img_shows.length; i++) {
+                    src_modal_array_contenido.push(img_shows[i].getAttribute("data-description"));
+                }
+                img_shows.forEach((tem, index) => {
+                    tem.addEventListener('click', () => {
+                        indice_modal = index;
+                        console.log(indice_modal);
+                        desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
+                        modal_img.setAttribute('src', src_modal_array[indice_modal]);
+                        document.querySelector("#modal").style.display = "block";
+                        setTimeout(() => {
+                            document.querySelector("#modal").classList.add("aparecer");
+                        }, 100);
+                    });
+                });
+
+                arrows[0].addEventListener('click', () => {
+                    indice_modal === 0 ? indice_modal = src_modal_array.length - 1 : indice_modal--;
+                    modal_img.setAttribute('src', src_modal_array[indice_modal]);
+                    desc_modal.innerText = src_modal_array_contenido[indice_modal];
+                    document.querySelector("#modal").style.display = "block";
+                    setTimeout(() => {
+                        document.querySelector("#modal").classList.add("aparecer");
+                    }, 300);
+                });
+                arrows[1].addEventListener('click', () => {
+
+                    indice_modal === src_modal_array.length - 1 ? indice_modal = 0 : indice_modal++;
+                    modal_img.setAttribute('src', src_modal_array[indice_modal]);
+                    desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
+                    document.querySelector("#modal").style.display = "block";
+                    setTimeout(() => {
+                        document.querySelector("#modal").classList.add("aparecer");
+                    }, 100);
+                });
             }, 100);
         });
     });
@@ -115,4 +132,6 @@ window.addEventListener('load', ()=>{
         const busqueda = e.target.value;
         grid.filter((item)=> item.getElement().dataset.etiquetas.includes(busqueda));
     });
+
+    
 });
