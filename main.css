@@ -206,6 +206,13 @@ body {
   align-items: center;
   font-size: 30px;
 }
+#modal .modal-img picture span svg {
+  cursor: pointer;
+  transition: 0.1s linear;
+}
+#modal .modal-img picture span svg:hover {
+  transform: scale(1.5);
+}
 
 .home {
   color: #9b9b9b;

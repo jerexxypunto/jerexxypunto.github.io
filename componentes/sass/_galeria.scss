@@ -132,6 +132,13 @@
                 display: flex;
                 align-items: center;
                 font-size:30px;
+                svg{
+                    cursor: pointer;
+                    transition: .1s linear;
+                    &:hover{
+                        transform: scale(1.5);
+                    }
+                }
             }
         }
     }
