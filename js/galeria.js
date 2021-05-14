@@ -18,6 +18,9 @@ const items = document.querySelectorAll(".galeria__grid .item");
 
 const desc_modal = document.querySelector("#modal .modal-des p");
 
+// En este array estaran contenidas solo las imagenes que se muestran
+let img_shows = [];
+
 // Inicializo la variable src_modal
 let src_modal;
 
@@ -43,7 +46,6 @@ arrows[0].addEventListener('click',()=>{
     setTimeout(() => {
         document.querySelector("#modal").classList.add("aparecer");
     }, 300);
-    console.log(indice_modal);
 });
 arrows[1].addEventListener('click',()=>{
 
@@ -54,7 +56,6 @@ arrows[1].addEventListener('click',()=>{
     setTimeout(() => {
         document.querySelector("#modal").classList.add("aparecer");
     }, 100);
-    console.log(indice_modal);
 });
 
 items.forEach((item, index) => {
@@ -66,7 +67,6 @@ items.forEach((item, index) => {
         setTimeout(() => {
             document.querySelector("#modal").classList.add("aparecer");
     }, 100);
-        console.log(index);
     });
 });
 
@@ -91,7 +91,6 @@ window.addEventListener('load', ()=>{
             enalces.forEach((enlace)=> enlace.classList.remove('active'));
             event.target.classList.add('active');
 
-
             const categoria = event.target.innerText.toLowerCase();
             /* 
             -- condicional ternario --
@@ -99,6 +98,15 @@ window.addEventListener('load', ()=>{
             si no se cumple muuri solo filtrara los elementos con [data-categoria="la categoria pinchada"]
             */
             categoria === 'todo' ? grid.filter('[data-categoria]') : grid.filter(`[data-categoria="${categoria}"]`);
+
+            setTimeout(() => {
+                img_shows = [];
+                items.forEach((Element, index) => {
+                    if (Element.classList.contains("muuri-item-shown")) {
+                        img_shows.push(items[index]);
+                    }
+                });
+            }, 100);
         });
     });
 
