@@ -3,25 +3,25 @@
 
 Hola mi nombre es Jeremías san Martín, soy desarrollador web independiente.
 
->La tegnologia web tiene mucho potencial, con ella puede hacer desde una sensilla pagina web para informar o algo mas complejo como tu propia tienda virtual o incluso un app, ¡sí una app! como esas que descargas en tu telefono celular.
+>La tegnologia web tiene mucho potencial, con ella puede hacer desde una sencilla página web para informar o algo más complejo como tu propia tienda virtual o incluso un app, ¡sí una app! como esas que descargas en tu teléfono celular.
 
-Trabajo con las tegnologias básica: *HTML 5, CSS 3 y JavaScript* 
+Trabajo con las tegnologías básica: *HTML 5, CSS 3 y JavaScript* 
 
-Trabajo con los respectivos preprosesadores de estas tegnologias:
+Trabajo con los respectivos preprocesadores de estas tegnologías:
 * pug
 * styluss
 * scss
 * less
 
-Tambien uso frameworks y librerias de ser necesario.
+También uso frameworks y librerías de ser necesario.
 
-En este repositorio estare enseñando algunos de mis proyectos y asi usted pueda conocer el maravilloso alcanse de la tecnologia web.
+En este repositorio estaré enseñando algunos de mis proyectos y así usted pueda conocer el maravilloso alcance de la tecnología web.
 
 Mi web personal es: https://gscdesigns.net/
 
 Portafolio:  https://jerexxypunto.github.io/
 
-En el conoceras algunos:
+En él conocerás algunos:
 * Sitios web
 * Dibujos CSS
-* Aplicaciónes Web
+* Aplicaciones Web
