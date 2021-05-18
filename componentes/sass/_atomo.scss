@@ -1,0 +1,348 @@
+/*estilos de átomo simulación*/
+.cont_1 h2 {
+  text-align: center;
+  color: #fff;
+  display: block;
+  padding: 5%;
+}
+
+.cont_atom {
+  display: flex;
+  justify-content: center;
+  padding: 2% 0;
+  .atomo{
+      left: 0;
+        animation: atomo 1s infinite;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 550px;
+        width: 550px;
+        .coraza {
+            box-shadow: 0 0 35px #5c5cff;
+            animation: coraza 1.5s infinite;
+            background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.2) 60%);
+            z-index: 2;
+            margin: 1%;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            .electrones {
+                position: absolute;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                box-shadow: 0 0 10px lightblue;
+                background-image: radial-gradient(lightblue, rgba(255, 255, 255, 0));
+            }
+             #e1 {
+            left: 0px;
+            bottom: 0px;
+            animation: e1 1.5s ease infinite;
+            }
+             #e2 {
+            left: 237px;
+            top: 0px;
+            animation: e2 1s ease infinite;
+            }
+             #e3 {
+            left: 237px;
+            bottom: 0px;
+            animation: e3 1.5s infinite;
+            }
+             #e4 {
+            right: 0px;
+            bottom: 0px;
+            animation: e4 1s ease infinite;
+            }
+             #e5 {
+            top: 237px;
+            right: 0px;
+            animation: e5 1s ease infinite;
+            }
+             #e6 {
+            top: 237px;
+            left: 0px;
+            animation: e6 1.5s ease infinite;
+            }
+             #e7 {
+            top: 0px;
+            left: 0px;
+            animation: e7 1s ease infinite;
+            }
+             #e8 {
+            top: 0px;
+            right: 0px;
+            animation: e8 1s ease infinite;
+            }
+        }
+  }
+}
+@keyframes atomo {
+  0% {
+    left: 0px;
+  }
+  40% {
+    left: 15px;
+  }
+  80% {
+    left: 0px;
+  }
+  100% {
+    left: -15px;
+  }
+}
+@keyframes coraza {
+  0% {
+    box-shadow: 0 0 35px 0 #5c5cff;
+    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.1) 60%);
+  }
+  50% {
+    box-shadow: 0 0 35px 20px #5c5cff;
+    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.2) 60%);
+  }
+  100% {
+    box-shadow: 0 0 35px 0 #5c5cff;
+    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.1) 60%);
+  }
+}
+@keyframes e1 {
+  0% {
+    opacity: 0;
+    left: 237px;
+    top: 237px;
+  }
+  40% {
+    opacity: 1;
+    left: 0px;
+    top: 500px;
+  }
+  80% {
+    opacity: 1;
+    left: 500px;
+    top: 0px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    left: 302px;
+    top: 176px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e2 {
+  0% {
+    opacity: 0;
+    left: 237px;
+    top: 237px;
+  }
+  40% {
+    opacity: 1;
+    left: 237px;
+    top: 500px;
+  }
+  80% {
+    opacity: 1;
+    left: 237px;
+    top: 0px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    left: 237px;
+    top: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e3 {
+  0% {
+    opacity: 0;
+    left: 237px;
+    bottom: 237px;
+  }
+  40% {
+    opacity: 1;
+    left: 237px;
+    bottom: 500px;
+  }
+  80% {
+    opacity: 1;
+    left: 237px;
+    bottom: 0px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    left: 237px;
+    bottom: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e4 {
+  0% {
+    opacity: 0;
+    right: 237px;
+    bottom: 237px;
+  }
+  40% {
+    opacity: 1;
+    right: 0px;
+    bottom: 0px;
+  }
+  80% {
+    opacity: 1;
+    right: 500px;
+    bottom: 500px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    right: 237px;
+    bottom: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e5 {
+  0% {
+    opacity: 0;
+    top: 237px;
+    right: 237px;
+  }
+  40% {
+    opacity: 1;
+    top: 237px;
+    right: 0px;
+  }
+  60% {
+    opacity: 1;
+    top: 260px;
+    right: 237px;
+  }
+  80% {
+    opacity: 1;
+    top: 237px;
+    right: 500px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    top: 220px;
+    right: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e6 {
+  0% {
+    opacity: 0;
+    top: 237px;
+    left: 237px;
+  }
+  40% {
+    opacity: 1;
+    top: 237px;
+    left: 0px;
+  }
+  60% {
+    opacity: 1;
+    top: 220px;
+    left: 237px;
+  }
+  80% {
+    opacity: 1;
+    top: 237px;
+    left: 500px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    top: 260px;
+    left: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e7 {
+  0% {
+    opacity: 0;
+    top: 237px;
+    left: 237px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+  }
+  80% {
+    opacity: 1;
+    top: 500px;
+    left: 500px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    top: 237px;
+    left: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes e8 {
+  0% {
+    opacity: 0;
+    top: 237px;
+    right: 237px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+    right: 0px;
+  }
+  80% {
+    opacity: 1;
+    top: 500px;
+    right: 500px;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    top: 237px;
+    right: 237px;
+    transform: scale(0.1);
+  }
+}
+@keyframes nucleo {
+  0% {
+    right: 0px;
+  }
+  40% {
+    right: 10px;
+  }
+  80% {
+    right: 0px;
+  }
+  100% {
+    right: -10px;
+  }
+}
+.cont_atom .atomo .nucleo {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+.cont_atom .atomo .nucleo .infra_nucleo {
+  position: relative;
+  animation: nucleo 1s infinite;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 36px -7px blueviolet;
+  background-image: radial-gradient(blueviolet, rgba(255, 255, 255, 0));
+}
+
+/*fin de estilos de átomo simulación*/
