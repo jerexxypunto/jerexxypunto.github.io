@@ -215,30 +215,32 @@ body {
   transform: scale(1.5);
 }
 
+.animaciones {
+  width: 95%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 .animaciones h2 {
   text-align: center;
 }
 .animaciones__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 300px 300px;
+  justify-content: space-around;
+  align-content: space-around;
 }
 .animaciones__item {
-  height: 200px;
+  height: 100%;
   width: 100%;
 }
 
 /*estilos de átomo simulación*/
-.cont_1 h2 {
-  text-align: center;
-  color: #fff;
-  display: block;
-  padding: 5%;
-}
-
 .cont_atom {
   display: flex;
   justify-content: center;
   padding: 2% 0;
+  height: 100%;
 }
 .cont_atom .atomo {
   left: 0;
@@ -248,8 +250,8 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 550px;
-  width: 550px;
+  height: 100%;
+  width: 100%;
 }
 .cont_atom .atomo .coraza {
   box-shadow: 0 0 35px #5c5cff;
@@ -313,16 +315,13 @@ body {
 
 @keyframes atomo {
   0% {
-    left: 0px;
+    transform: scale(1);
   }
-  40% {
-    left: 15px;
-  }
-  80% {
-    left: 0px;
+  50% {
+    transform: scale(0.9);
   }
   100% {
-    left: -15px;
+    transform: scale(1);
   }
 }
 @keyframes coraza {
