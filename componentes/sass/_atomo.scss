@@ -38,12 +38,12 @@
             animation: e1 1.5s ease infinite;
             }
              #e2 {
-            left: 237px;
+            left: 100%;
             top: 0px;
             animation: e2 1s ease infinite;
             }
              #e3 {
-            left: 237px;
+            left: 100%;
             bottom: 0px;
             animation: e3 1.5s infinite;
             }
@@ -53,12 +53,12 @@
             animation: e4 1s ease infinite;
             }
              #e5 {
-            top: 237px;
+            top: 100%;
             right: 0px;
             animation: e5 1s ease infinite;
             }
              #e6 {
-            top: 237px;
+            top: 100%;
             left: 0px;
             animation: e6 1.5s ease infinite;
             }
@@ -103,17 +103,17 @@
 @keyframes e1 {
   0% {
     opacity: 0;
-    left: 237px;
-    top: 237px;
+    left: 100%;
+    top: 100%;
   }
   40% {
     opacity: 1;
     left: 0px;
-    top: 500px;
+    top: 100%;
   }
   80% {
     opacity: 1;
-    left: 500px;
+    left: 100%;
     top: 0px;
     transform: scale(0.8);
   }
@@ -127,56 +127,56 @@
 @keyframes e2 {
   0% {
     opacity: 0;
-    left: 237px;
-    top: 237px;
+    left: 100%;
+    top: 100%;
   }
   40% {
     opacity: 1;
-    left: 237px;
-    top: 500px;
+    left: 100%;
+    top: 100%;
   }
   80% {
     opacity: 1;
-    left: 237px;
+    left: 100%;
     top: 0px;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
-    left: 237px;
-    top: 237px;
+    left: 100%;
+    top: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e3 {
   0% {
     opacity: 0;
-    left: 237px;
-    bottom: 237px;
+    left: 100%;
+    bottom: 100%;
   }
   40% {
     opacity: 1;
-    left: 237px;
-    bottom: 500px;
+    left: 100%;
+    bottom: 100%;
   }
   80% {
     opacity: 1;
-    left: 237px;
+    left: 100%;
     bottom: 0px;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
-    left: 237px;
-    bottom: 237px;
+    left: 100%;
+    bottom: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e4 {
   0% {
     opacity: 0;
-    right: 237px;
-    bottom: 237px;
+    right: 100%;
+    bottom: 100%;
   }
   40% {
     opacity: 1;
@@ -185,80 +185,80 @@
   }
   80% {
     opacity: 1;
-    right: 500px;
-    bottom: 500px;
+    right: 100%;
+    bottom: 100%;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
-    right: 237px;
-    bottom: 237px;
+    right: 100%;
+    bottom: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e5 {
   0% {
     opacity: 0;
-    top: 237px;
-    right: 237px;
+    top: 100%;
+    right: 100%;
   }
   40% {
     opacity: 1;
-    top: 237px;
+    top: 100%;
     right: 0px;
   }
   60% {
     opacity: 1;
     top: 260px;
-    right: 237px;
+    right: 100%;
   }
   80% {
     opacity: 1;
-    top: 237px;
-    right: 500px;
+    top: 100%;
+    right: 100%;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
     top: 220px;
-    right: 237px;
+    right: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e6 {
   0% {
     opacity: 0;
-    top: 237px;
-    left: 237px;
+    top: 100%;
+    left: 100%;
   }
   40% {
     opacity: 1;
-    top: 237px;
+    top: 100%;
     left: 0px;
   }
   60% {
     opacity: 1;
     top: 220px;
-    left: 237px;
+    left: 100%;
   }
   80% {
     opacity: 1;
-    top: 237px;
-    left: 500px;
+    top: 100%;
+    left: 100%;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
     top: 260px;
-    left: 237px;
+    left: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e7 {
   0% {
     opacity: 0;
-    top: 237px;
-    left: 237px;
+    top: 100%;
+    left: 100%;
   }
   40% {
     opacity: 1;
@@ -267,22 +267,22 @@
   }
   80% {
     opacity: 1;
-    top: 500px;
-    left: 500px;
+    top: 100%;
+    left: 100%;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
-    top: 237px;
-    left: 237px;
+    top: 100%;
+    left: 100%;
     transform: scale(0.1);
   }
 }
 @keyframes e8 {
   0% {
     opacity: 0;
-    top: 237px;
-    right: 237px;
+    top: 100%;
+    right: 100%;
   }
   40% {
     opacity: 1;
@@ -291,14 +291,14 @@
   }
   80% {
     opacity: 1;
-    top: 500px;
-    right: 500px;
+    top: 100%;
+    right: 100%;
     transform: scale(0.8);
   }
   100% {
     opacity: 0;
-    top: 237px;
-    right: 237px;
+    top: 100%;
+    right: 100%;
     transform: scale(0.1);
   }
 }
