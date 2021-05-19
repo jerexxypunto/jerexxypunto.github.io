@@ -242,7 +242,7 @@ body {
   width: 100%;
 }
 .animaciones__item h3 {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 /*estilos de átomo simulación*/
@@ -565,6 +565,143 @@ body {
   }
 }
 /*fin de estilos de átomo simulación*/
+.boxMachine {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 70px;
+}
+.boxMachine .cilindroContainer {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  top: -80px;
+  display: flex;
+  justify-content: space-around;
+}
+.boxMachine .cilindroContainer .cilindro {
+  height: 100%;
+  width: 80px;
+  background: #6f6f6f;
+  box-shadow: -10px 0 5px #3c3c3c inset;
+}
+.boxMachine .cilindroContainer .cilindro:before {
+  content: "";
+  width: 100%;
+  height: 15px;
+  display: block;
+  background: #eee;
+  box-shadow: 10px 0 0 #eee, -10px 0 0 #eee;
+}
+.boxMachine .cilindroContainer .cilindro.uno {
+  position: relative;
+  top: 75px;
+  animation: upCili 2s linear infinite;
+}
+@keyframes upCili {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 75px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+.boxMachine .cilindroContainer .cilindro.dos {
+  position: relative;
+  top: 0;
+  animation: downCili 2s linear infinite;
+}
+@keyframes downCili {
+  0% {
+    top: 75px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 75px;
+  }
+}
+.boxMachine .machine {
+  position: absolute;
+  background: #eee;
+  width: 95%;
+  height: 95%;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: -10px 0 0 #d5d5d5 inset;
+}
+.boxMachine .machine:after {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  display: block;
+  width: 80%;
+  height: 30%;
+  background: #d5d5d5;
+  box-shadow: 0 0 20px 5px inset;
+}
+.boxMachine .machine .circle {
+  margin-top: 3%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0 3px #6f6f6f;
+  background: #a2a2a2;
+  position: relative;
+  animation: giro 1.5s linear infinite;
+}
+@keyframes giro {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.boxMachine .machine .circle::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  background: #eee;
+  position: absolute;
+  top: 39%;
+  left: 39%;
+  box-shadow: 0 0 2px inset;
+}
+.boxMachine .machine .circle .hole {
+  background: #6f6f6f;
+  box-shadow: 0 0 2px inset;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+}
+.boxMachine .machine .circle .hole:nth-child(1) {
+  top: 5px;
+  left: 40px;
+}
+.boxMachine .machine .circle .hole:nth-child(2) {
+  bottom: 5px;
+  left: 40px;
+}
+.boxMachine .machine .circle .hole:nth-child(3) {
+  top: 40px;
+  left: 5px;
+}
+.boxMachine .machine .circle .hole:nth-child(4) {
+  top: 40px;
+  right: 5px;
+}
+
 .home {
   color: #9b9b9b;
   position: relative;
