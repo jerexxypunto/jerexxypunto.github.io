@@ -15,9 +15,8 @@
       height: 100%;
       width: 100%;
         .coraza {
-            box-shadow: 0 0 35px #5c5cff;
             animation: coraza 1.5s infinite;
-            background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.2) 60%);
+            background-image: radial-gradient(rgba(236, 236, 236, 0.137) 10%,rgba(0, 0, 0,0.8)90%);
             z-index: 2;
             margin: 1%;
             width: 100%;
@@ -29,8 +28,7 @@
                 border-radius: 50%;
                 height: 30px;
                 width: 30px;
-                box-shadow: 0 0 10px lightblue;
-                background-image: radial-gradient(lightblue, rgba(255, 255, 255, 0));
+                background-image: radial-gradient(lightblue, rgba(0, 0, 0, 0.5));
             }
              #e1 {
             left: 0px;
@@ -73,6 +71,25 @@
             animation: e8 1s ease infinite;
             }
         }
+        .nucleo{
+           z-index: 1;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          bottom: 0;
+          .infra_nucleo{
+            position: relative;
+            animation: nucleo 1s infinite;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 36px -7px blueviolet;
+            background-image: radial-gradient(blueviolet, rgba(0, 0, 0, 0.822));
+          }
+        }
   }
 }
 @keyframes atomo {
@@ -84,20 +101,6 @@
   }
   100% {
     transform: scale(1);
-  }
-}
-@keyframes coraza {
-  0% {
-    box-shadow: 0 0 35px 0 #5c5cff;
-    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.1) 60%);
-  }
-  50% {
-    box-shadow: 0 0 35px 20px #5c5cff;
-    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.2) 60%);
-  }
-  100% {
-    box-shadow: 0 0 35px 0 #5c5cff;
-    background-image: radial-gradient(rgba(255, 255, 255, 0) 40%, rgba(92, 92, 255, 0.1) 60%);
   }
 }
 @keyframes e1 {
@@ -304,36 +307,14 @@
 }
 @keyframes nucleo {
   0% {
-    right: 0px;
+    transform:scale(1);
   }
-  40% {
-    right: 10px;
-  }
-  80% {
-    right: 0px;
+  50%{
+    transform: scale(1.2);
   }
   100% {
-    right: -10px;
+    transform:scale(1);
   }
-}
-.cont_atom .atomo .nucleo {
-  z-index: 1;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-}
-.cont_atom .atomo .nucleo .infra_nucleo {
-  position: relative;
-  animation: nucleo 1s infinite;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  box-shadow: 0 0 36px -7px blueviolet;
-  background-image: radial-gradient(blueviolet, rgba(255, 255, 255, 0));
 }
 
 /*fin de estilos de átomo simulación*/
