@@ -22,6 +22,12 @@
     &__item{
         height: 100%;
         width: 100%;
+        &.item-span{
+            grid-column: 1/-1;
+            h3{
+                text-align: center;
+            }
+        }
         h3{
             margin-bottom:30px;
         }

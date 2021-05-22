@@ -19,12 +19,12 @@ $desplazamiento:30px;
 .socialweb{
   width: 500px;
   height: 200px;
+  margin: 0 auto;
   display: flex;
   flex-wrap:wrap;
   justify-content:space-around;
   align-items:center;
   position:relative;
-  border:2px solid;
   .line{
     @include linea(#86B300);
     position:absolute;
