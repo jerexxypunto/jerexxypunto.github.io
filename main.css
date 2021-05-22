@@ -222,7 +222,7 @@ p {
 .animaciones {
   width: 95%;
   margin: 0 auto;
-  height: 200vh;
+  min-height: 200vh;
 }
 .animaciones h2 {
   text-align: center;
