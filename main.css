@@ -226,6 +226,7 @@ p {
 }
 .animaciones h2 {
   text-align: center;
+  margin-bottom: 50px;
 }
 .animaciones__grid {
   display: grid;
