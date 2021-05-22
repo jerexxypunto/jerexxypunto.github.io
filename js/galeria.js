@@ -132,6 +132,18 @@ window.addEventListener('load', ()=>{
         const busqueda = e.target.value;
         grid.filter((item)=> item.getElement().dataset.etiquetas.includes(busqueda));
     });
+    img_shows.forEach((tem, index) => {
+        tem.addEventListener('click', () => {
+            indice_modal = index;
+            console.log(indice_modal);
+            desc_modal.innerText = `${src_modal_array_contenido[indice_modal]}`;
+            modal_img.setAttribute('src', src_modal_array[indice_modal]);
+            document.querySelector("#modal").style.display = "block";
+            setTimeout(() => {
+                document.querySelector("#modal").classList.add("aparecer");
+            }, 100);
+        });
+    });
 
     
 });
