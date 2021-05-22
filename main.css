@@ -767,6 +767,61 @@ p {
   transform: translateZ(75px);
 }
 
+.contenedor.box-animation {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.contenedor.box-animation .box {
+  border: 5px solid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.contenedor.box-animation .box.uno {
+  border-color: orange;
+  transform: rotate(0deg);
+  animation: giro1 5s linear infinite;
+}
+@keyframes giro1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.contenedor.box-animation .box.dos {
+  animation: giro2 5s linear infinite;
+  border-color: red;
+}
+@keyframes giro2 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.contenedor.box-animation .box.tres {
+  border-color: yellow;
+  transform: rotate(45deg);
+  animation: giro3 5s linear infinite;
+}
+@keyframes giro3 {
+  to {
+    transform: rotate(450deg);
+  }
+}
+.contenedor.box-animation .box.four {
+  border-color: brown;
+  animation: giro4 5s linear infinite;
+}
+@keyframes giro4 {
+  to {
+    transform: rotate(-450deg);
+  }
+}
+
 .home {
   position: relative;
 }
