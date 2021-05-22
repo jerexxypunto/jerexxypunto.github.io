@@ -1,0 +1,123 @@
+$desplazamiento:30px;
+@mixin circulo($diametro, $color, $sombra){
+  font-size:$diametro;
+  border-radius:50%;
+  width:1em;
+  height:1em;
+  display: block;
+  background: $color;
+  box-shadow:-10px -8px 0 $sombra inset;
+}
+@mixin linea($color){
+  width: 150px;
+  height: 5px;
+  display: block;
+  background: $color;
+  border-radius:10px;
+}
+
+.socialweb{
+  width: 500px;
+  height: 200px;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-items:center;
+  position:relative;
+  border:2px solid;
+  .line{
+    @include linea(#86B300);
+    position:absolute;
+    &:first-child{
+      left:75px;
+      animation:linea1 10s linear infinite;
+      @keyframes linea1{
+        0%{
+          transform:rotate(-18deg);
+        }
+        50%{
+          transform:rotate(18deg);
+        }
+        100%{
+          transform:rotate(-18deg);
+        }
+      }
+    }
+    &:nth-child(2){
+      left:250px;
+      transform:rotate(-30deg);
+      animation:linea2 10s linear infinite;
+      @keyframes linea2{
+        0%{
+          transform:rotate(18deg);
+        }
+        50%{
+          transform:rotate(-18deg);
+        }
+        100%{
+          transform:rotate(18deg);
+        }
+      }
+    }
+  }
+  #tirthCircle{
+    @include circulo(80px , #9c0, #86B300);
+    z-index:30;
+    animation:cir1 10s linear infinite;
+    position:relative;
+    @keyframes cir1{
+      0%{
+        top:$desplazamiento;
+        transform:rotate(30deg);
+      }
+      50%{
+        top:$desplazamiento * -1;
+        transform:rotate(-30deg);
+      }
+      100%{
+        top:$desplazamiento;
+        transform:rotate(30deg);
+      }
+    }
+  }
+  #firstCircle{
+    @include circulo(80px , #9c0, #86B300);
+    z-index:40;
+    animation:cir2 10s linear infinite;
+    position:relative;
+    @keyframes cir2{
+      0%{
+        top:$desplazamiento;
+        transform:rotate(50deg);
+      }
+      50%{
+        top:$desplazamiento * -1;
+        transform:rotate(-100deg);
+      }
+      100%{
+        top:$desplazamiento;
+        transform:rotate(50deg);
+      }
+    }
+  }
+  #secondCircle{
+    @include circulo(80px , #9c0, #86B300);
+    z-index:50;
+    animation:cir3 10s linear infinite;
+    position:relative;
+    @keyframes cir3{
+      0%{
+        top:$desplazamiento * -1;
+        transform:rotate(50deg);
+      }
+      50%{
+        top:$desplazamiento;
+        transform:rotate(-100deg);
+      }
+      100%{
+        top:$desplazamiento * -1;
+        transform:rotate(50deg);
+      }
+    }
+  }
+}

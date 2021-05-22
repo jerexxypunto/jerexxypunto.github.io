@@ -822,6 +822,134 @@ p {
   }
 }
 
+.socialweb {
+  width: 500px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  border: 2px solid;
+}
+.socialweb .line {
+  width: 150px;
+  height: 5px;
+  display: block;
+  background: #86B300;
+  border-radius: 10px;
+  position: absolute;
+}
+.socialweb .line:first-child {
+  left: 75px;
+  animation: linea1 10s linear infinite;
+}
+@keyframes linea1 {
+  0% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(18deg);
+  }
+  100% {
+    transform: rotate(-18deg);
+  }
+}
+.socialweb .line:nth-child(2) {
+  left: 250px;
+  transform: rotate(-30deg);
+  animation: linea2 10s linear infinite;
+}
+@keyframes linea2 {
+  0% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(-18deg);
+  }
+  100% {
+    transform: rotate(18deg);
+  }
+}
+.socialweb #tirthCircle {
+  font-size: 80px;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: block;
+  background: #9c0;
+  box-shadow: -10px -8px 0 #86B300 inset;
+  z-index: 30;
+  animation: cir1 10s linear infinite;
+  position: relative;
+}
+@keyframes cir1 {
+  0% {
+    top: 30px;
+    transform: rotate(30deg);
+  }
+  50% {
+    top: -30px;
+    transform: rotate(-30deg);
+  }
+  100% {
+    top: 30px;
+    transform: rotate(30deg);
+  }
+}
+.socialweb #firstCircle {
+  font-size: 80px;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: block;
+  background: #9c0;
+  box-shadow: -10px -8px 0 #86B300 inset;
+  z-index: 40;
+  animation: cir2 10s linear infinite;
+  position: relative;
+}
+@keyframes cir2 {
+  0% {
+    top: 30px;
+    transform: rotate(50deg);
+  }
+  50% {
+    top: -30px;
+    transform: rotate(-100deg);
+  }
+  100% {
+    top: 30px;
+    transform: rotate(50deg);
+  }
+}
+.socialweb #secondCircle {
+  font-size: 80px;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: block;
+  background: #9c0;
+  box-shadow: -10px -8px 0 #86B300 inset;
+  z-index: 50;
+  animation: cir3 10s linear infinite;
+  position: relative;
+}
+@keyframes cir3 {
+  0% {
+    top: -30px;
+    transform: rotate(50deg);
+  }
+  50% {
+    top: 30px;
+    transform: rotate(-100deg);
+  }
+  100% {
+    top: -30px;
+    transform: rotate(50deg);
+  }
+}
+
 .home {
   position: relative;
 }
