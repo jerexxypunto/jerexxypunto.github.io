@@ -1,23 +1,47 @@
-const categoria__home = document.querySelectorAll(".home__categorias section");
-const categoria__home_contenido = document.querySelectorAll(".home__categorias--contenido section");
+const categoria__home = [...document.querySelectorAll(".home__categorias section")];
+const categoria__home_contenido = [...document.querySelectorAll(".home__categorias--contenido section")];
 
-let pos = 0;
+const altura = 500;
 
-categoria__home[0].addEventListener('click', () => pos = 1);
-categoria__home[1].addEventListener('click', () => pos = 2);
-categoria__home[2].addEventListener('click', () => pos = 3);
+
+
+const cambiarAltura = (cuanto)=> {
+    let alturaFinal;
+    if (cuanto > 1){
+        alturaFinal = (altura * (cuanto - 1)) * -1;
+        return alturaFinal + "px"
+    }else{
+        alturaFinal=0;
+        return alturaFinal + "px"
+    }
+}
+
+const modificator = (data)=>{
+    categoria__home_contenido.forEach((item)=>{
+        item.style.top=  data;
+    });
+}
 
 categoria__home.forEach((item)=>{
     item.addEventListener('click',(evento) => {
-        categoria__home.forEach((e)=> {
-            e.classList.remove("activo")
-            
-        });
-        evento.currentTarget.classList.toggle("activo");
-        categoria__home_contenido.forEach((i)=>{
-            i.classList.remove("activo");
-        });
-        categoria__home_contenido[pos - 1].classList.add("activo");
+        categoria__home.forEach(i => i.classList.remove("activo"));
+        evento.target.classList.add("activo");
+        switch (evento.target.getAttribute("data-id")) {
+            case "1":
+                console.log(evento.target.getAttribute("data-id"));
+                modificator(cambiarAltura(1));
+                break;
+            case "2":
+                console.log(evento.target.getAttribute("data-id"));
+                modificator(cambiarAltura(2));
+                break;
+        
+            default:
+                console.log(evento.target.getAttribute("data-id"));
+                modificator(cambiarAltura(3));
+                break;
+            }
+        
     });
 });
 

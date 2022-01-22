@@ -43,6 +43,17 @@
       }
       justify-content: space-between;
       section{
+        &::after{
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+        }
+          position: relative;
           background-color: #fff;
           border-radius:10px;
           padding: 10px;
@@ -77,32 +88,17 @@
           }
       }
       &--contenido{
+          overflow: hidden;
+          height: 500px;
+          margin-bottom: 50px;
           section{
+              position: relative;
               cursor: pointer;
               background-color: #fff;
-              border-radius: 10px;
               padding:10px 20px;
-              position: relative;
               margin-bottom: 15px;
-              transition: .3s linear;
-              height: 45px;
-              &:hover{
-                  box-shadow: 0 0 0 2px #9c0;
-              }
-              &.activo{
-                  box-shadow: 0 0 0 2px #9c0;
-                  height: 471px;
-                  h4{
-                      color: #000;
-                  }
-                  span.cerrar{
-                      color: #9c0;
-                      transform: rotate(0deg);
-                  }
-                  .container{
-                      display: block;
-                  }
-              }
+              height: 500px;
+              transition: .5s ease-in-out;
               h4{
                   margin:0;
                   padding:0;
@@ -118,7 +114,6 @@
                   transition: .3s linear;
               }
               .container{
-                  display: none;
                   margin-top: 40px;
                     figure{
                         &:hover{

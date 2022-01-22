@@ -17,49 +17,48 @@ block contenido
 
             p Permíteme mostrarte algunos de mis proyectos:
             .home__categorias
-                section.activo
+                section.activo(data-id=1)
                     +windowIco()
                     p Sitio Web
      
-                section
+                section(data-id=2)
                     +cubeIco()
                     p Aplicación Web
-                section
+                section(data-id=3)
                     +penIco()
                     p Dibujo en CSS 
             .home__categorias--contenido.mt-5 
-                section.activo
+                section
                     h4 Sitio Web
-                    span.cerrar 
-                        i(class="fa fa-times")
                     .container 
                         .row 
                             .col-12.col-md-6.mb-3
-                                figure 
-                                    img(src="https://i.imgur.com/TlSEB20.png")
-                                    figcaption.text-center 
-                                        a(href="https://gscdesigns.net/") www.gscdesigns.net
+                                a(href="https://gscdesigns.net/")
+                                    figure 
+                                        img(src="https://i.imgur.com/TlSEB20.png")
+                                        figcaption.text-center www.gscdesigns.net
                                      
                             .col-12.col-md-6.mb-3
-                                figure 
-                                    img(src="https://i.imgur.com/Ry3MKtp.png")
-                                    figcaption.text-center 
-                                        a(href="https://jerexxypunto.github.io/galeria") jerexxypunto.github.io/galeria
+                                a(href="./galeria.html")
+                                    figure 
+                                        img(src="https://i.imgur.com/Ry3MKtp.png")
+                                        figcaption.text-center jerexxypunto.github.io/galeria
                                      
                                      
                 section
                     h4 Aplicación Web
-                    span.cerrar 
-                        i(class="fa fa-times")
+                    .container
+                        a(href="./criptografo/") 
+                            figure
+                                img(src="https://i.imgur.com/qvO1R9A.png")
+                            figcaption.text-center jerexxypunto.github.io/criptografo/
                 section
                     h4 Dibujo en CSS 
-                    span.cerrar 
-                        i(class="fa fa-times")
-                    .container 
-                        figure
-                            img(src="https://i.imgur.com/4G6Yosb.png")
-                        figcaption.text-center 
-                            a(href="https://jerexxypunto.github.io/animation.html") jerexxypunto.github.io/animation.html
+                    .container
+                        a(href="./animation.html") 
+                            figure
+                                img(src="https://i.imgur.com/4G6Yosb.png")
+                            figcaption.text-center jerexxypunto.github.io/animation.html
     footer 
         include pug/_footer.pug
     script(src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js")
