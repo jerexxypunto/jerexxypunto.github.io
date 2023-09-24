@@ -21,11 +21,11 @@ p{
 .max-w-800{
     max-width: 800px;
     margin: 0 auto;
-    @media screen and(max-width:810px){
-        width: 90%;
-        margin: 0 auto;
 
-    }
+        @media screen and (max-width: 810px){
+            width: 90%;
+            margin: 0 auto;
+        }
 }
 .marck-container{
     p{

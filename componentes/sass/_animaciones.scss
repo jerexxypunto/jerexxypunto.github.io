@@ -12,9 +12,9 @@
         grid-template-columns: 300px 300px;
         grid-template-rows: 300px 300px;
         row-gap: 200px;
-        @media screen and(max-width:720px){
-            grid-template-columns:300px;
-        }
+            @media screen and ( max-width:720px ){
+                grid-template-columns:300px;
+            }
         justify-content: space-around;
         align-content: space-around;
 
