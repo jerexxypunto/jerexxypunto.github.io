@@ -42,6 +42,8 @@ modal_close.addEventListener('click',()=>{
 });
 
 window.addEventListener('load', ()=>{
+
+    // Muuri layout
     grid.refreshItems().layout;
     document.querySelector(".galeria__grid").classList.add('imagenes-cargadas');
 
@@ -60,6 +62,7 @@ window.addEventListener('load', ()=>{
     for (let i = 0; i < img_shows.length; i++) {
         src_modal_array_contenido.push(img_shows[i].getAttribute("data-description"));
     }
+
     
     enalces.forEach((item) => {
         item.addEventListener('click', (event) => {
@@ -144,6 +147,10 @@ window.addEventListener('load', ()=>{
             }, 100);
         });
     });
+
+
+    // Acciono el estado Todo por defecto
+    grid.filter(`[ data-categoria]`);
 
     
 });
