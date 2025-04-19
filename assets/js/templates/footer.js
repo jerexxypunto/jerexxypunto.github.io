@@ -1,42 +1,84 @@
+const socialLinks = [
+    { href: "https://web.facebook.com/jeremias.sanmartin.52/", class: "icon brands style2 fa-facebook-f", label: "Facebook" },
+    { href: "https://www.instagram.com/thinker_existencial/?next=%2F", class: "icon brands style2 fa-instagram", label: "Instagram" },
+    { href: "https://jerexxypunto.github.io/", class: "icon brands style2 fa-github", label: "GitHub" },
+    { href: "+56990055107", class: "icon solid style2 fa-phone", label: "Phone" },
+    { href: "jerexxypunto@gmail.com", class: "icon solid style2 fa-envelope", label: "Email" }
+];
+
+const socialLinksHTML = socialLinks.map(link => `
+    <li> <a href="${link.href}"  target="_blank" class="${link.class}"><span class="label">${link.label}</span></a></li>
+`).join("");
+
+function createContactForm() {
+
+    const formTitle = "Contactame";
+    const sendButton = {
+        "text": "Enviar",
+        "class": "primary"
+    };
+
+    const formFields = [
+        { type: "text", name: "name", id: "name", placeholder: "Nombre", class: "field half" },
+        { type: "email", name: "email", id: "email", placeholder: "Email", class: "field half" },
+        { type: "textarea", name: "message", id: "message", placeholder: "Mensaje", class: "field" }
+    ];
+
+    const fieldsHTML = formFields.map(field => {
+        if (field.type === "textarea") {
+            return `<div class="${field.class}"><textarea name="${field.name}" id="${field.id}" placeholder="${field.placeholder}"></textarea></div>`;
+        } else {
+            return `<div class="${field.class}"><input type="${field.type}" name="${field.name}" id="${field.id}" placeholder="${field.placeholder}" /></div>`;
+        }
+    }).join("");
+
+    const formHTML = `
+        <section>
+            <h2>${formTitle}</h2>
+            <form id="contactForm" method="post" action="#">
+                <div class="fields">
+                    ${fieldsHTML}
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="${sendButton.text}" class="${sendButton.class}" /></li>
+                </ul>
+            </form>
+        </section>
+    `;
+
+    // Add event listener for form submission
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        if (form) {
+            form.addEventListener("submit", (event) => {
+                event.preventDefault(); // Prevent default form submission
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+
+                console.log("Form submitted:", { name, email, message });
+                alert("Thank you for your message!");
+            });
+        }
+    });
+
+    return formHTML;
+}
+
 const footer_html = `
-						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; Jeremias San Martin. Todos los derechos reservados</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-	
+    <div class="inner">
+        ${createContactForm()}
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                ${socialLinksHTML}
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Jeremias San Martin. Todos los derechos reservados</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
 `;
 
 function loadFooter() {
