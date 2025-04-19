@@ -18,15 +18,20 @@ const header_html = `
 					
 `;
 
+const menuItems = [
+    { href: "index.html", text: "Home" },
+    { href: "galeria.html", text: "Galeria" },
+    { href: "animaciones.html", text: "Animaciones" },
+];
+
 const nav_html = `
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
+<div class="inner">
+    <h2>Menu</h2>
+    <ul>
+        ${menuItems.map(item => `<li><a href="${item.href}">${item.text}</a></li>`).join('')}
+    </ul>
+</div>
+<a class="close" href="#menu">Close</a>
 `;
 
 
