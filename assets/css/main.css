@@ -7,6 +7,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+html{
+	--basic-img-size: 250px;
+
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -70,6 +75,12 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
+}
+
+img{
+	width: var(--basic-img-size);
+	height: var(--basic-img-size);
+	display: block;
 }
 
 /* Basic */
@@ -3327,3 +3338,7 @@ input, select, textarea {
 			}
 
 		}
+
+.galeria__grid{
+	margin-bottom: 2em;
+}
