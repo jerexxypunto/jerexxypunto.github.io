@@ -183,3 +183,7 @@
 			});
 
 })(jQuery);
+
+// Load header and footer
+loadHeader();
+loadFooter();
