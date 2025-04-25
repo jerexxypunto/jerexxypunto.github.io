@@ -65,23 +65,6 @@ function genericContentLoader() {
 }
 
 /**
- * Obtiene el contenido de un archivo
- * @param {*} content 
- * @returns 
- */
-async function getContent ( content ){
-    const req =  await fetch(location.origin + '/content/files/' + content )
-    const res = await req.text();
-    return res;
-}
-
-async function getPageList( ){
-    const req =  await fetch( location.origin + '/content/conf/list.json' )
-    const res = await req.json();
-    return res;
-}
-
-/**
  * Extra parametros de la URL
  * @param {*} url 
  * @returns object
