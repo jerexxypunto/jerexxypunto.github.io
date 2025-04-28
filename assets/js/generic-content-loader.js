@@ -82,11 +82,8 @@ function genericContentLoader() {
 
         // Convertir Markdown a HTML
         const htmlContent = marked.parse(markdownContent);
-         
-        setTimeout( () => {
-            // Insertar el contenido en el DOM
-            injectMdContent(htmlContent);
-        }, 1000 );
+        // Insertar el contenido en el DOM
+        injectMdContent(htmlContent);
         
     })
     .catch( err => {
