@@ -1,7 +1,7 @@
 
 if( location.pathname === '/single.html' ){
     genericContentLoader();
-     loadPostsList();
+    loadPostsList();
 }
 
 function loadPostsList(  ){
@@ -38,27 +38,50 @@ function createPostRelated( post, domElement ){
     domElement.appendChild(card);
 }
 
+function injectMdContent( htmlContent ){
+
+    const contentContainer = document.querySelector('#content-container');
+    if (contentContainer) {
+        contentContainer.innerHTML = htmlContent;
+    } else {
+        console.error('No se encontró el contenedor para el contenido');
+    }
+
+}
+
+function ShowErrorMD( msg ){
+
+    let md_fallback = "# Error 404\n";
+    console.error(msg);
+    md_fallback += msg;
+    const htmlContent = marked.parse(md_fallback);
+    injectMdContent(htmlContent);
+}
+
 function genericContentLoader() {
 
-    const { post } = getPostFromUrl(location.href);
+    const getData = getPostFromUrl(location.href);
+    if( !getData ){
+        ShowErrorMD("No se han encontrado parámetros en la URL");
+        return;
+    }
+
+    const { post } = getData;
     const file_path = `${post}.md`;
 
     getContent( file_path )
     .then( markdownContent => {
 
-       // Convertir Markdown a HTML
-            const htmlContent = marked.parse(markdownContent);
+        // Convertir Markdown a HTML
+        const htmlContent = marked.parse(markdownContent);
             
-            // Insertar el contenido en el DOM
-            const contentContainer = document.querySelector('#content-container');
-            if (contentContainer) {
-                contentContainer.innerHTML = htmlContent;
-            } else {
-                console.error('No se encontró el contenedor para el contenido');
-            }
+        // Insertar el contenido en el DOM
+        injectMdContent(htmlContent);
     })
     .catch( err => {
-        console.error(err);
+        let fileSearch = `Contenido **${post}** no encontrado. <br>`;
+        fileSearch += "Verifique que el archivo existe en la carpeta **/posts/**";
+        ShowErrorMD(fileSearch);
     });
 
 
@@ -77,6 +100,5 @@ function getPostFromUrl( url ){
     for (const [key, value] of searchParams.entries()) {
         params[key] = value;
     }
-    return params;
+    return Object.keys(params).length > 0 ? params : false;
 }
-
