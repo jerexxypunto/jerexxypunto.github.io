@@ -41,11 +41,19 @@ function createPostRelated( post, domElement ){
 function injectMdContent( htmlContent ){
 
     const contentContainer = document.querySelector('#content-container');
-    if (contentContainer) {
-        contentContainer.innerHTML = htmlContent;
-    } else {
-        console.error('No se encontró el contenedor para el contenido');
-    }
+    const loader  = document.querySelector('#loader');
+    loader.classList.add('hidden');
+
+    setTimeout( () => {
+        if (contentContainer) {
+            contentContainer.innerHTML = htmlContent;
+        } else {
+            console.error('No se encontró el contenedor para el contenido');
+        }
+
+    }, 1000 );
+
+    
 
 }
 
@@ -74,9 +82,12 @@ function genericContentLoader() {
 
         // Convertir Markdown a HTML
         const htmlContent = marked.parse(markdownContent);
-            
-        // Insertar el contenido en el DOM
-        injectMdContent(htmlContent);
+         
+        setTimeout( () => {
+            // Insertar el contenido en el DOM
+            injectMdContent(htmlContent);
+        }, 1000 );
+        
     })
     .catch( err => {
         let fileSearch = `Contenido **${post}** no encontrado. <br>`;
