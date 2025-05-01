@@ -81,9 +81,17 @@ const footer_html = `
     </div>
 `;
 
+function loadMdParser(){
+    const mdParserUrl = "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
+    const script = document.createElement("script");
+    script.src = mdParserUrl;
+    document.body.appendChild(script);
+}
+
 function loadFooter() {
     const footer = document.getElementById("footer");
     if (footer) {
         footer.innerHTML = footer_html;
     }
+    loadMdParser();
 }

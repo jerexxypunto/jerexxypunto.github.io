@@ -238,6 +238,8 @@ img{
 		font-size: 0.8em;
 	}
 
+
+
 	@media screen and (max-width: 980px) {
 
 		h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
@@ -3507,6 +3509,21 @@ img{
   
   .loading-bar:nth-child(4) {
 	animation-delay: 0.3s;
+  }
+
+  .section-dynamic-content h2,
+  .section-dynamic-content h3,
+  .section-dynamic-content h4,
+  .section-dynamic-content p,
+  .section-dynamic-content ul{
+	margin: 0 0 1em 0;
+  }
+
+  .section-dynamic-content h4,
+  .section-dynamic-content h5,
+  .section-dynamic-content h6{
+	font-size: 1em;
+	letter-spacing: 0.2em;
   }
   
   @keyframes loading-wave-animation {
