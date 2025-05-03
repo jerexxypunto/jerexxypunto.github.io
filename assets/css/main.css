@@ -3539,4 +3539,20 @@ img{
 	  height: 10px;
 	}
   }
+
+
+  .cotizacion-form{
+	
+	display: grid;
+
+	h3 big {
+		letter-spacing: normal;
+		font-size: 1.5em;
+	}
+
+	button{
+		margin-top: 15px;
+        justify-self: end;
+	}
+  }
   
