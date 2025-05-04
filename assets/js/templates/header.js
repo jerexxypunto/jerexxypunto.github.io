@@ -111,3 +111,5 @@ function loadHeader() {
         dynamicNav( e => menu.innerHTML = e );
     }
 }
+
+export { loadHeader, getContent, getPageList };

@@ -95,3 +95,5 @@ function loadFooter() {
     }
     loadMdParser();
 }
+
+export { loadFooter };

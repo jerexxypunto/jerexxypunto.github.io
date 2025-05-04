@@ -1,4 +1,6 @@
 
+import { getContent, getPageList } from './templates/header.js';
+
 if( location.pathname === '/single.html' ){
     genericContentLoader();
     loadPostsList();
