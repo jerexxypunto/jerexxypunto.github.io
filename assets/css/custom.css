@@ -1,0 +1,27 @@
+#cotizacion-app{
+
+    width: 80%;
+    margin: 0 auto;
+
+    form{
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    form.disabled{
+        opacity: 0;
+    }
+
+    form button{
+        margin-top: 20px;
+    }
+
+    .error{
+        color: red;
+        background-color: rgba(255, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+}
+
