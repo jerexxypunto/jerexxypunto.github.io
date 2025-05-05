@@ -91,7 +91,6 @@ function contizacionHanlder(){
 			}
 		} catch (error) {
 			$msg.classList.add('error');
-			$msg.classList.add('badge');
 			$msg.innerHTML = error.message;
 			parentElement.appendChild($msg);
 		}
