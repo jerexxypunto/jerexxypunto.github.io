@@ -21,9 +21,18 @@
 				<div id="cotizacion-app">
 
 					<form>
-						 <input type="text" placeholder="Nombre del Cliente" id="nombre" name="nombre" required>
-						 <input type="text" placeholder="RUN del cliente" id="run" name="run" required>
-						 <input type="text" placeholder="Nombre de la empresa del Cliente"  name="empresa" id="empresa" required>
+						<label for="nombre">
+							Nombre del Cliente:
+							<input type="text" placeholder="Juan Perez" id="nombre" name="nombre" required>
+						</label>
+						<label for="run">
+							RUN del cliente:
+							<input type="text" placeholder="99-999-999-K" id="run" name="run" required>
+						</label>
+						<label for="empresa">
+							Nombre de la empresa del Cliente:
+							<input type="text" placeholder="Empresa S.A." name="empresa" id="empresa" required>
+						</label>
 						 <button type="submit"> Generar cotización </button>						 
 					</form>
 

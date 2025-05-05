@@ -1,4 +1,5 @@
 export const contrato = [
+"<h1>CONTRATO DE PRESTACIÓN DE SERVICIOS</h1>",
 `<p>En la República de Chile a <dia> de <mes> de <año>, don Jeremías San Martín, RUN:
 20.255.983-2 como Desarrollador y por otra parte como Cliente:<clienteNombre>, RUN:
 <clienteRun> en representación de <clienteEmpresa> , han convenido lo
