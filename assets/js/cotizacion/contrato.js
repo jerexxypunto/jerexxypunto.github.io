@@ -79,9 +79,9 @@ export class ContratoGenerator {
             "<dia>": this.dia,
             "<mes>": this.mes,
             "<año>": this.año,
-            "<clienteNombre>": this.clienteNombre,
-            "<clienteRun>": this.clienteRun,
-            "<clienteEmpresa>": this.clienteEmpresa,
+            "<clienteNombre>": `<i>${this.clienteNombre}</i>`,
+            "<clienteRun>": `<i>${this.clienteRun}</i>`,
+            "<clienteEmpresa>": `<i>${this.clienteEmpresa}</i>`,
         };
 
         const contratoGenerado = contrato.map((section) => {

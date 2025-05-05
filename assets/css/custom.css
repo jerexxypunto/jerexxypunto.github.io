@@ -16,6 +16,10 @@
         margin-top: 20px;
     }
 
+    p i {
+        font-weight: bold;
+    }
+
     .error{
         color: red;
         background-color: rgba(255, 0, 0, 0.1);

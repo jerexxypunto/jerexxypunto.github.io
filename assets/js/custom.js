@@ -64,12 +64,11 @@ function cotizacionFormHanlder(){
 
 function contizacionHanlder(){
 
-	function handdlerInput( input  ){
+	function handdlerInput( input, contratoHandler  ){
 		
 		const { value, name, parentElement } = input;
 
 		const $msg = document.createElement('p');	
-		const contratoHandler = new ContratoGenerator();
 
 		try{
 			switch (name) {
@@ -93,6 +92,7 @@ function contizacionHanlder(){
 			$msg.classList.add('error');
 			$msg.innerHTML = error.message;
 			parentElement.appendChild($msg);
+			throw error;
 		}
 	}
 
@@ -102,22 +102,24 @@ function contizacionHanlder(){
 	$cotizacion.addEventListener("submit", (e) => {
 		e.preventDefault();
 
-		console.log( $cotizacion );
-
-		//$cotizacion.classList.add("disabled");
-
 		const $clienteNombre = $cotizacion.querySelector("input#nombre");
 		const $clienteRun = $cotizacion.querySelector("input#run");
 		const $clienteEmpresa = $cotizacion.querySelector("input#empresa");
 
-		handdlerInput( $clienteNombre );
-		handdlerInput( $clienteRun );
-		handdlerInput( $clienteEmpresa );
+		const contratoHandler = new ContratoGenerator();
 
+		handdlerInput( $clienteNombre, contratoHandler  );
+		handdlerInput( $clienteRun, contratoHandler  );
+		handdlerInput( $clienteEmpresa, contratoHandler  );
 
+		$cotizacion.classList.add("disabled");
 
-		//const contrato = contratoHandler.generateContrato();
-		//contratoHandler.addHtmltoDom( contrato, $cotizacion );
+		const contrato = contratoHandler.generateContrato();
+
+		setTimeout(() => {
+			contratoHandler.addHtmltoDom( contrato, $cotizacion );
+			$cotizacion.classList.remove("disabled");
+		}, 1000);
 
 	});
 
