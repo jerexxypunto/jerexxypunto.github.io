@@ -20,6 +20,15 @@
         font-weight: bold;
     }
 
+    p .normal-font{
+        letter-spacing: normal;
+        font-size: 3em;
+    }
+
+    .contrato-button:nth-of-type(1){
+        margin-right: 20px;
+    }
+
     .error{
         color: red;
         background-color: rgba(255, 0, 0, 0.1);
