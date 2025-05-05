@@ -1,5 +1,6 @@
 import { loadHeader, getPageList } from './templates/header.js';
 import { loadFooter } from './templates/footer.js';
+import { ContratoGenerator } from './cotizacion/contrato.js';
 
 
 /**
@@ -61,8 +62,34 @@ function cotizacionFormHanlder(){
 
 }
 
+function contizacionHanlder(){
+
+	const $cotizacion = document.querySelector('#cotizacion-app');
+	if( !$cotizacion ) return;
+
+	$cotizacion.addEventListener("submit", (e) => {
+		e.preventDefault();
+
+		const $clienteNombre = $cotizacion.querySelector("input#nombre");
+		const $clienteRun = $cotizacion.querySelector("input#run");
+		const $clienteEmpresa = $cotizacion.querySelector("input#empresa");
+
+		const contratoHandler = new ContratoGenerator();
+
+		contratoHandler.setClienteNombre($clienteNombre.value);
+		contratoHandler.setClienteRun($clienteRun.value);
+		contratoHandler.setClienteEmpresa($clienteEmpresa.value);
+
+		const contrato = contratoHandler.generateContrato();
+		contratoHandler.addHtmltoDom( contrato, $cotizacion );
+
+	});
+
+}
+
 // Load header and footer
 loadHeader();
 loadFooter();
 sectionDynamicContent();
 cotizacionFormHanlder();
+contizacionHanlder();

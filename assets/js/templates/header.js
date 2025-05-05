@@ -1,4 +1,12 @@
 
+function urlAssetsLoader( url ){
+
+    const { origin } = window.location;
+    const urlAssets = `${origin}/${url}`;
+    return urlAssets;
+
+}
+
 /**
  * Obtiene el contenido de un archivo
  * @param {*} content 
@@ -44,7 +52,7 @@ const header_html = `
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Desarrollador de Software</span>
+									<span class="symbol"><img src="${urlAssetsLoader("images/logo.svg")}" alt="" /></span><span class="title">Desarrollador de Software</span>
 								</a>
 
 							<!-- Nav -->
