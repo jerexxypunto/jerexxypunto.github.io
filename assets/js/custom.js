@@ -96,7 +96,7 @@ function contizacionHanlder(){
 		}
 	}
 
-	const $cotizacion = document.querySelector('#cotizacion-app form');
+	const $cotizacion = document.querySelector('#contrato-app form');
 	if( !$cotizacion ) return;
 
 	$cotizacion.addEventListener("submit", (e) => {
