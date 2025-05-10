@@ -52,12 +52,7 @@ function cotizacionFormHanlder(){
 
 	$cotizacionForm.addEventListener('submit', (e) => {
 		e.preventDefault();
-		const msg = `Quiero una cotización para el siguiente servicio:\n\n${$cotizacionFormTexarea.value}`;
-		console.log(msg);
-		const url = `https://api.whatsapp.com/send?phone=5215541234567&text=${encodeURIComponent(msg)}`;
-		window.open(url, '_blank');
-		$cotizacionFormTexarea.value = '';
-		$cotizacionFormTexarea.focus();
+		location.href = "/app/cotizar.html?msg="+$cotizacionFormTexarea.value;
 	});
 
 }
