@@ -1,3 +1,5 @@
+import { render_stop_by } from './template_utils.js';
+
 const socialLinks = [
     { href: "https://web.facebook.com/jeremias.sanmartin.52/", class: "icon brands style2 fa-facebook-f", label: "Facebook" },
     { href: "https://www.instagram.com/thinker_existencial/?next=%2F", class: "icon brands style2 fa-instagram", label: "Instagram" },
@@ -89,7 +91,14 @@ function loadMdParser(){
 }
 
 function loadFooter() {
+
     const footer = document.getElementById("footer");
+
+    if ( render_stop_by( [ "contrato" ] )  ){
+        footer.remove()
+        return;
+    }
+
     if (footer) {
         footer.innerHTML = footer_html;
     }

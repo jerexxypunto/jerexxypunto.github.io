@@ -38,3 +38,27 @@
     }
 }
 
+
+.paper-container{
+    background-color: #eee;
+    min-height: 100vh;
+    padding: 50px 0;
+}
+
+.paper-container p.print_font{
+    font-size: 12px;
+}
+
+
+
+.contrato-app.paper-print{
+    width: 100% !important;
+}
+
+.contrato-app.paper-print button{
+    display: none;
+}
+
+.contrato-app.paper-print .paper{
+    box-shadow: none;
+}

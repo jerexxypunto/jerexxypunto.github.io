@@ -57,7 +57,7 @@ instantáneamente sin previo aviso y reportada a las autoridades de Policía Loc
 si el caso lo amerita. </p>`,
 
 `<p> <b>SEGUNDO: </b> Con relación al Proyecto: Para dar comienzo al desarrollo, del proyecto, el Cliente,
-tendrá que transferir o depositar el 100% del monto acordado por ambas partes y se entenderá
+tendrá que transferir o depositar el 50% del monto acordado por ambas partes y se entenderá
 que al momento de realizar dicha transacción a favor del Desarrollador el Cliente no tendrá
 derecho a devoluciones parciales o totales de dineros por proyectos en desarrollo y/o puestos
 ONLINE.</p>`,
@@ -142,9 +142,25 @@ export class ContratoGenerator {
         printButton.innerHTML = "Imprimir";
         printButton.classList.add("contrato-button");
 
+        function papper_to_print() {
+            Array.from(document.querySelectorAll(".contrato-fragment p")).forEach( (p) => {
+                p.classList.toggle("print_font");
+            });
+            document.querySelector(".contrato-app").classList.toggle("paper-print");
+        }
+
+        
         printButton.addEventListener("click", (e) => {
             e.preventDefault();
+            papper_to_print();
             window.print();
+
+            setTimeout(() => {
+                papper_to_print();
+            }
+            , 1000);
+
+
         });
 
         return printButton;
@@ -157,7 +173,7 @@ export class ContratoGenerator {
 
         editButton.addEventListener("click", (e) => {
             e.preventDefault();
-            location.href = location.origin + "/app/cotizar.html";
+            location.href = location.origin + "/app/contrato.html";
 
         });
 

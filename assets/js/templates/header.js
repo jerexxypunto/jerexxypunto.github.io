@@ -1,3 +1,5 @@
+import { render_stop_by } from './template_utils.js';
+
 
 function urlAssetsLoader( url ){
 
@@ -109,7 +111,14 @@ function dynamicNav( navCallaback ){
 
 
 function loadHeader() {
+
     const header = document.getElementById("header");
+
+    if ( render_stop_by( [ "contrato" ] )  ){
+        header.remove();
+        return;
+    }
+
     const menu = document.getElementById("menu");
     if (header) {
         header.innerHTML = header_html;
