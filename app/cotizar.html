@@ -20,6 +20,54 @@
 
 				<div id="cotizacion-app">
 
+					<form>
+						<label>¿Qué tipo de sitio web buscas?</label>
+
+						 <select name="website-type" class="website-type-select" >
+							<option value="Tienda en línea" > Tienda en linea </option>
+							<option value="Catalogo" > Catalogo </option>
+							<option value="Básico" > Básico </option>
+							<option value="Otro" > Otro </option>
+						 </select>
+
+						 <br/>
+
+						 <label for="website-type-spec" > Describe el tipo de tienda </label>
+						 <textarea name="website-type-spec" id="website-type-spec"></textarea>
+
+						 <br/>
+
+						 <label> Tú sitio web  es autoadministrable </label>
+
+						 <input type="radio" id="autoadministrable-si" name="autoadministrable" value="sí">
+						 <label for="autoadministrable-si">Sí</label>
+
+						 <input type="radio" id="autoadministrable-no" name="autoadministrable" value="no">
+						 <label for="autoadministrable-no">NO</label>
+
+						 <label> ¿Cuanto tiempo de desarrollo estas dispuesto a esperar? </label>
+
+						 <input type="radio" id="time-build-1w" name="time-build" value="1 Semana">
+						 <label for="time-build-1w">1 Semana</label>
+
+						 <input type="radio" id="time-build-2w" name="time-build" value="2 Semanas">
+						 <label for="time-build-2w">2 Semanas</label>
+
+						 <input type="radio" id="time-build-1m" name="time-build" value="1 Mes">
+						 <label for="time-build-1m">1 Mes</label>
+
+						 <input type="radio" id="time-build-3m" name="time-build" value="3 Meses">
+						 <label for="time-build-3m">3 Meses</label>
+
+						 <input type="radio" id="time-build-null" name="time-build" value="No tengo prisa">
+						 <label for="time-build-null">No tengo prisa</label>
+
+						 <label for="cotizacion-form-texarea"> Describe tu sitio web </label>
+						 <textarea  name="cotizacion-form-texarea" id="cotizacion-form-texarea"></textarea>
+						
+						 <button type="submit"> Cotizar </button>
+					</form>
+
 
 				</div>
 

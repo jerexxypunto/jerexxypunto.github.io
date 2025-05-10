@@ -44,20 +44,22 @@ function sectionDynamicContent(){
 
 function cotizacionFormHanlder(){
 
-	const $cotizacionForm = document.querySelector('#cotizacion-form');
+	const $contratoForm = document.querySelector('#cotizacion-form');
 
-    if( !$cotizacionForm ) return;
+    if( !$contratoForm ) return;
 
-    const $cotizacionFormTexarea = $cotizacionForm.querySelector('#cotizacion-form-texarea');
+	if( !$cotizacionApp ) return;
 
-	$cotizacionForm.addEventListener('submit', (e) => {
+    const $contratoFormTexarea = $contratoForm.querySelector('#cotizacion-form-texarea');
+
+	$contratoForm.addEventListener('submit', (e) => {
 		e.preventDefault();
-		location.href = "/app/cotizar.html?msg="+$cotizacionFormTexarea.value;
+		location.href = "/app/cotizar.html?msg="+$contratoFormTexarea.value;
 	});
 
 }
 
-function contizacionHanlder(){
+function contratoHanlder(){
 
 	function handdlerInput( input, contratoHandler  ){
 		
@@ -91,15 +93,15 @@ function contizacionHanlder(){
 		}
 	}
 
-	const $cotizacion = document.querySelector('#contrato-app form');
-	if( !$cotizacion ) return;
+	const $contrato = document.querySelector('#contrato-app form');
+	if( !$contrato ) return;
 
-	$cotizacion.addEventListener("submit", (e) => {
+	$contrato.addEventListener("submit", (e) => {
 		e.preventDefault();
 
-		const $clienteNombre = $cotizacion.querySelector("input#nombre");
-		const $clienteRun = $cotizacion.querySelector("input#run");
-		const $clienteEmpresa = $cotizacion.querySelector("input#empresa");
+		const $clienteNombre = $contrato.querySelector("input#nombre");
+		const $clienteRun = $contrato.querySelector("input#run");
+		const $clienteEmpresa = $contrato.querySelector("input#empresa");
 
 		const contratoHandler = new ContratoGenerator();
 
@@ -107,17 +109,71 @@ function contizacionHanlder(){
 		handdlerInput( $clienteRun, contratoHandler  );
 		handdlerInput( $clienteEmpresa, contratoHandler  );
 
-		$cotizacion.classList.add("disabled");
+		$contrato.classList.add("disabled");
 
 		const contrato = contratoHandler.generateContrato();
 
 		setTimeout(() => {
-			contratoHandler.addHtmltoDom( contrato, $cotizacion );
-			$cotizacion.classList.remove("disabled");
+			contratoHandler.addHtmltoDom( contrato, $contrato );
+			$contrato.classList.remove("disabled");
 		}, 1000);
 
 	});
 
+}
+
+function url_params(){
+	const parametros = new URLSearchParams(window.location.search);
+	// Convierte a objeto plano (opcional)
+	const datos = Object.fromEntries(parametros.entries());
+
+	return datos;
+}
+
+function togglewWebsiteDesc(){
+	const tagname = "website-type-spec";
+	const label = document.querySelector(`label[for="${tagname}"]`);
+	const texarea = document.querySelector(`#${tagname}`);
+
+	const select = document.querySelector(".website-type-select");
+
+	select.addEventListener("change", (e) => {
+		const value = e.target.value;
+		if( value === "Otro" ){
+			label.classList.add("active");
+			texarea.classList.add("active");
+			texarea.removeAttribute("disabled");
+		}else{
+			label.classList.remove("active");
+			texarea.classList.remove("active");
+			texarea.setAttribute("disabled", "true");
+		}
+		
+	} );
+
+	
+}
+
+function cotizacionAppHanlder(){
+
+	const $cotizacionApp = document.querySelector('#cotizacion-app form');
+	if( !$cotizacionApp ) return;
+
+	const { msg } = url_params();
+	const $cotizacionAppTexarea = $cotizacionApp.querySelector('#cotizacion-form-texarea');
+	$cotizacionAppTexarea.value = msg;
+
+	togglewWebsiteDesc();
+
+	$cotizacionApp.addEventListener("submit", (e) => {
+		e.preventDefault();
+
+		const formData = new FormData(e.target); // Captura los datos del formulario
+		const datos = Object.fromEntries(formData.entries()); // Convierte a objeto plano
+	  
+		console.log(datos); // Muestra todos los campos y valores capturados
+		
+	});
 }
 
 // Load header and footer
@@ -125,4 +181,5 @@ loadHeader();
 loadFooter();
 sectionDynamicContent();
 cotizacionFormHanlder();
-contizacionHanlder();
+contratoHanlder();
+cotizacionAppHanlder();

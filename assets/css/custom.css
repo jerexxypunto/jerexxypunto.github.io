@@ -62,3 +62,14 @@
 .contrato-app.paper-print .paper{
     box-shadow: none;
 }
+
+#cotizacion-app label[for="website-type-spec"],
+#cotizacion-app #website-type-spec{
+    display: none;
+}
+
+
+#cotizacion-app label[for="website-type-spec"].active,
+#cotizacion-app #website-type-spec.active{
+    display: block;
+}
