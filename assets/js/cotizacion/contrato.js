@@ -2,8 +2,8 @@ export const contrato = [
 "<h1>CONTRATO DE PRESTACIÓN DE SERVICIOS</h1>",
 
 `<p>En la República de Chile a <dia> de <mes> de <año>, don Jeremías San Martín, RUN:
-20.255.983-2 como Desarrollador y por otra parte como Cliente:<clienteNombre>, RUN:
-<clienteRun> en representación de <clienteEmpresa> , han convenido lo
+20.255.983-2 como Desarrollador y por otra parte como Cliente: <clienteNombre>, RUN:
+ <clienteRun> en representación de <clienteEmpresa> , han convenido lo
 siguiente en el presente contrato de prestación de servicios: </p>`,
 
 `<p> <b>PRIMERO: </b> Por medio del presente contrato el Desarrollador se obliga a prestar al Cliente los
@@ -18,7 +18,7 @@ ocasionada por problemas técnicos de su responsabilidad.</p>`,
     <li> <b>Hosting: </b> Servicio de terceros que consiste en el almacenamiento y distribucion de los ficheros del sitio web en cuestion. </li>
     <li> <b>Dominio: </b> Servicio de terceros que consiste en la renta de un nombre con la estructura "dominio.com" en dónde "dominio" es el nombre de dominio y ".com" corresponde a la extención del nombre de dominio. Cuando rentas un nombre de dominio, rentas la convinacion de un nombre de dominio + su extención "tudominio.com" </li>
     <li> <b>Indexación en Google: </b> Servicio prestado por el desarrollador que consiste en la carga del dominio del sistio web a la lista de indices de busqueda de google. </li>
-    <li> <b>Correos corporativos: </b> Servicio de terceros que consiste en la renta de un correo electronico con la estructura 
+    <li> <b>Correos corporativos: </b> Servicio de terceros que consiste en la renta de un correo electronico con la estructura nombre@midominio.com en donde "nombre" puede ser cualquier nombre de usuario y "dominio.com" corresponde al dominio de su cliente.  </li>
 </ul>`,
 
 `<h4>DEFINICIÓN DEL SERVICIO</h4>
@@ -56,6 +56,8 @@ acción contraria a las Leyes de la Republica de Chile.</p>`,
 instantáneamente sin previo aviso y reportada a las autoridades de Policía Local e Internacional
 si el caso lo amerita. </p>`,
 
+`<p>Una ves transcurridos los 30 días una ves cancelado el 50% restante del pago por el servicio, el desarrollador no se hara responsable por mal uso o corrupción del sitio web y/o su contenido.</p>`,
+
 `<p> <b>SEGUNDO: </b> Con relación al Proyecto: Para dar comienzo al desarrollo, del proyecto, el Cliente,
 tendrá que transferir o depositar el 50% del monto acordado por ambas partes y se entenderá
 que al momento de realizar dicha transacción a favor del Desarrollador el Cliente no tendrá
@@ -73,7 +75,9 @@ confidencial del cliente a la que pudiese tener acceso en el desempeño de sus f
 
 `<h4>Valor de proyecto</h4>
 <h2> <PrecioProyecto> </h2>
-`
+`,
+`<h4>FIRMA DEL CLIENTE: ______________________________________ </h4>`,
+`<h4>FIRMA DEL DESARROLLADOR: ______________________________________ </h4>`
 ];
 export class ContratoGenerator {
     constructor() {
@@ -95,7 +99,13 @@ export class ContratoGenerator {
     }
 
     setClienteNombre(nombre) {
-        this.clienteNombre = nombre;
+        // Valida que sean exactamente dos palabras separadas por espacio
+        const nombrePattern = /^([A-Za-zÁÉÍÓÚáéíóúÑñ]+(?:\s+)){2,}[A-Za-zÁÉÍÓÚáéíóúÑñ]+$/;
+        if (nombrePattern.test(nombre.trim())) {
+            this.clienteNombre = nombre;
+        } else {
+            throw new Error("Debes ingresar un nombre y apellido válidos.");
+        }
     }
     setClienteRun(run) {
         const runPattern = /^\d{2}\.\d{3}\.\d{3}-\d{1}$/;
@@ -119,9 +129,9 @@ export class ContratoGenerator {
             "<dia>": this.dia,
             "<mes>": this.mes,
             "<año>": this.año,
-            "<clienteNombre>": `<i>${this.clienteNombre}</i>`,
-            "<clienteRun>": `<i>${this.clienteRun}</i>`,
-            "<clienteEmpresa>": `<i>${this.clienteEmpresa}</i>`,
+            "<clienteNombre>": `<b>${this.clienteNombre}</b>`,
+            "<clienteRun>": `<b>${this.clienteRun}</b>`,
+            "<clienteEmpresa>": `<b>${this.clienteEmpresa}</b>`,
             "<PrecioProyecto>": `<b class="normal-font" >${this.showPrince()}</b>`
         };
 

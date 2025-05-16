@@ -62,6 +62,27 @@ function cotizacionFormHanlder(){
 function contratoHanlder(){
 
 	function handdlerInput( input, contratoHandler  ){
+
+		function removeErrorMsg( parentElement ){
+			const has_error = parentElement.querySelector('.error');
+			if( has_error ) {
+				has_error.remove();
+			}
+		}
+
+		function handleErrorRender( error, parentElement ){
+
+			// Ya existe un mensaje de error ?
+			const has_error = parentElement.querySelector('.error');
+			if( has_error ) {
+				has_error.innerHTML = error.message;
+				return;
+			}
+
+			$msg.classList.add('error');
+			$msg.innerHTML = error.message;
+			parentElement.appendChild($msg);
+		}
 		
 		const { value, name, parentElement } = input;
 
@@ -72,38 +93,51 @@ function contratoHanlder(){
 				case 'nombre':
 					// Handle nombre input
 					contratoHandler.setClienteNombre(value);
+					removeErrorMsg( parentElement );
 					break;
 				case 'run':
 					// Handle run input
 					contratoHandler.setClienteRun(value);
-					
+					removeErrorMsg( parentElement );
 					break;
 				case 'empresa':
 					// Handle empresa input
 					contratoHandler.setClienteEmpresa(value);
+					removeErrorMsg( parentElement );
 					break;
 				default:
 					break;
 			}
 		} catch (error) {
-			$msg.classList.add('error');
-			$msg.innerHTML = error.message;
-			parentElement.appendChild($msg);
+			handleErrorRender( error, parentElement );
 			throw error;
 		}
 	}
 
+
 	const $contrato = document.querySelector('#contrato-app form');
 	if( !$contrato ) return;
 
+	const $clienteNombre = $contrato.querySelector("input#nombre");
+	const $clienteRun = $contrato.querySelector("input#run");
+	const $clienteEmpresa = $contrato.querySelector("input#empresa");
+
+	const contratoHandler = new ContratoGenerator();
+
+	$clienteNombre.addEventListener("input", (e) => {
+		handdlerInput( $clienteNombre, contratoHandler  );
+	});
+
+	$clienteRun.addEventListener("input", (e) => {
+		handdlerInput( $clienteRun, contratoHandler  );
+	} );
+
+	$clienteEmpresa.addEventListener("input", (e) => {
+		handdlerInput( $clienteEmpresa, contratoHandler  );
+	});
+
 	$contrato.addEventListener("submit", (e) => {
 		e.preventDefault();
-
-		const $clienteNombre = $contrato.querySelector("input#nombre");
-		const $clienteRun = $contrato.querySelector("input#run");
-		const $clienteEmpresa = $contrato.querySelector("input#empresa");
-
-		const contratoHandler = new ContratoGenerator();
 
 		handdlerInput( $clienteNombre, contratoHandler  );
 		handdlerInput( $clienteRun, contratoHandler  );
