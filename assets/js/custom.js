@@ -48,8 +48,6 @@ function cotizacionFormHanlder(){
 
     if( !$contratoForm ) return;
 
-	if( !$cotizacionApp ) return;
-
     const $contratoFormTexarea = $contratoForm.querySelector('#cotizacion-form-texarea');
 
 	$contratoForm.addEventListener('submit', (e) => {
@@ -194,6 +192,11 @@ function cotizacionAppHanlder(){
 	if( !$cotizacionApp ) return;
 
 	const { msg } = url_params();
+
+	if( !msg || msg === undefined ){ {
+		msg = "";
+	}
+
 	const $cotizacionAppTexarea = $cotizacionApp.querySelector('#cotizacion-form-texarea');
 	$cotizacionAppTexarea.value = msg;
 
