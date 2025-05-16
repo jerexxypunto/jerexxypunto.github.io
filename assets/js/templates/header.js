@@ -76,7 +76,24 @@ function dynamicNav( navCallaback ){
         { href: "index.html", text: "Home" },
         { href: "galeria.html", text: "Galeria" },
         { href: "animaciones.html", text: "Animaciones" },
+        { href: "cotizar.html", text: "Cotizar" },
+        { href: "contrato.html", text: "Geneardor de Contratos" },
     ];
+
+    function dynnamicURLNAV( url ){
+
+        const { origin } = window.location;
+
+        let urlAssets = `${origin}/${url}`;
+
+        // LA URL a evaluar contiene contrato o cotizar
+        if( url.includes("cotizar") || url.includes("contrato") ){
+            return `${origin}/app/${url}`;
+        }
+    
+
+        return urlAssets;
+    }
 
     getPageList()
     .then( res => {
@@ -93,7 +110,7 @@ function dynamicNav( navCallaback ){
             <div class="inner">
                 <h2>Menu</h2>
                 <ul>
-                    ${menuItems.map(item => `<li><a href="${item.href}">${item.text}</a></li>`).join('')}
+                    ${menuItems.map(item => `<li><a href="${dynnamicURLNAV(item.href)}">${item.text}</a></li>`).join('')}
                 </ul>
             </div>
             <a class="close" href="#menu">Close</a>
