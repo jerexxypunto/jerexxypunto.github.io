@@ -212,6 +212,7 @@ function cotizacionAppHanlder(){
 		
 	});
 }
+}
 
 // Load header and footer
 loadHeader();
