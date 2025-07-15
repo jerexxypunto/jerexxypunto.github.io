@@ -3788,3 +3788,34 @@ img{
 	height: 80px;
 	margin-top: 70px;
 }
+
+.section-proyectos h2 {
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.website-grid{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr ) ;
+	grid-template-rows: repeat(2, 403px);
+	gap: 20px;
+	height: auto;
+	margin: 20px 0 100px 0;
+}
+
+.proyectos-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 403px);
+	gap: 20px;
+	height: auto;
+	margin: 20px 0;
+}
+
+.website-grid img,
+.proyectos-grid img {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+}
