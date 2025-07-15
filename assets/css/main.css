@@ -2842,29 +2842,9 @@ img{
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		padding: 10px 0 ;
+		background-color: transparent;
 	}
-
-		#header .logo {
-			display: block;
-			border-bottom: 0;
-			color: inherit;
-			font-weight: 900;
-			letter-spacing: 0.35em;
-			margin: 0 0 2.5em 0;
-			text-decoration: none;
-			text-transform: uppercase;
-			display: inline-block;
-		}
-
-			#header .logo > * {
-				display: inline-block;
-				vertical-align: middle;
-			}
-
-			#header .logo .symbol {
-				margin-right: 0.65em;
-			}
 
 				#header .logo .symbol img {
 					display: block;
@@ -3817,5 +3797,16 @@ img{
 	width: 100%;
 	height: 100%;
 	max-width: 100%;
+	object-fit: contain;
+}
+.logo-header{
+	height: 70px;
+	display: block;
+	border: none;
+}
+.logo-header img {
+	width: 100%;
+	height: 70px;
+	max-width: 500px;
 	object-fit: contain;
 }

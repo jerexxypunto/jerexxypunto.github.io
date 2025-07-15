@@ -53,8 +53,8 @@ const header_html = `
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="${urlAssetsLoader("images/logo.svg")}" alt="" /></span><span class="title">Desarrollador de Software</span>
+								<a href="index.html" class="logo-header">
+								    <img src="${urlAssetsLoader("images/Logo.png")}" alt="" />
 								</a>
 
 							<!-- Nav -->
