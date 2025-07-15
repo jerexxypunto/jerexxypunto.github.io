@@ -3778,3 +3778,13 @@ img{
 	max-width: 100%;
 	margin-bottom: 0;
 }
+
+.section-quien-soy__social {
+	justify-content: flex-end;
+}
+
+.section-quien-soy__social img {
+	width: 300px;
+	height: 80px;
+	margin-top: 70px;
+}
