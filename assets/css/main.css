@@ -2842,15 +2842,12 @@ img{
 /* Header */
 
 	#header {
-		padding: 10px 0 ;
+		padding: 10px 20px ;
 		background-color: transparent;
+		height: 150px;
+		display: flex;
+		align-items: center;
 	}
-
-				#header .logo .symbol img {
-					display: block;
-					width: 2em;
-					height: 2em;
-				}
 
 		#header nav {
 			position: fixed;
