@@ -3642,6 +3642,12 @@ img{
 	padding:50px 0;
 }
 
+@media (max-width: 1200px) {
+	.container {
+		width: 90%;
+	}
+}
+
 .flex{
 	display: flex;
 }
@@ -3679,7 +3685,7 @@ img{
 
 .services .hacker-connection .dotted-line{
 	border-top: dashed 5px #5a6fba;
-	width: 70%;
+	width: 85%;
 	animation: linear infinite 1s dotted-progress;
 }
 
