@@ -3562,23 +3562,20 @@ img{
 
 .hero-text{
 	position: absolute;
-	top: 10vh;
 	left: 5vw;
-	height: 100vh;
-	width: 550px;
+	bottom: 10vh;
 	
 }
 
 .display-title{
-	font-size: 110px;
-	color: #7080E5;
+	font-size: 48px;
+	color: #fff;
 	margin-bottom: 0;
 	text-transform: uppercase;
-	line-height: 0.8em;
 }
 
 .display-title-2{
-	font-size: 48px;
+	font-size: 30px;
 	color: #000;
 	margin: 0;
 	line-height: 1.2em;
@@ -3597,6 +3594,19 @@ img{
 	text-transform: none;
 }
 
+.display-button {
+	background-color: #7080E5;
+	color: #fff !important;
+	border-radius: 0 !important ;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.display-button:hover{
+	background-color: #5a6fba;
+	color: #fff !important;
+}
+
 .text-blue{
 	color: #7080E5;
 }
@@ -3607,10 +3617,11 @@ img{
 
 .display-subtitle{
 	font-size: 30px;
-	letter-spacing: -2px;
-	color: #000;
+	letter-spacing: 1px;
+	color: #fff;
 	padding: 0;
 	margin: 0 0 2em 0;
+	font-weight: lighter;
 
 }
 
