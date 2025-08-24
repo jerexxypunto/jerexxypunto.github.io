@@ -3656,165 +3656,38 @@ img{
 	max-width: 285px;
 }
 
-.hero-form{
+.services .hacker-connection{
 	position: relative;
-	--block-width: 550px;
 }
 
-.hero-form .textarea-wrapper{
-	width: var(--block-width);
-}
-.hero-form #hero-text-field{
-	box-shadow: 0 0 13px rgba(0, 0, 0, 0.37) inset;
-	padding: 15px;
-	background-color: #fff;
-	width: 100%;
-	max-width: var(--block-width);
-	margin-top: 20px;
-	height: 200px !important;
-}
-.hero-form .hero-button-field{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	display: flex;
-	justify-content: flex-end;
-	width: var(--block-width);
-	padding: 10px 10px;
-}
-.hero-form .hero-button-field button{
-	background-color: #7080E5;
-	color: #fff !important;
-	box-shadow: none;
-}
-
-.hero-full img {
-	width: 100%;
-	height: auto;
-	max-width: 100%;
-}
-
-.hero-50 img {
-	width: 100%;
-	height: auto;
-	max-width: 50%;
-}	
-
-.bg-hero-gray{
-	background-color: #f9f9f9;
-}
-.hero-heigth{
-	height: 90vh;
-}
-
-.hero-serviciotecnico {
-	padding-top: 100px;
-}
-
-.hero-serviciotecnico img {
-	overflow: hidden;
-	height: 500px;
-	object-fit: cover;
-}
-
-.hero-serviciotecnico p {
-	width: 60%;
-}
-.hero-serviciotecnico .flex{
-	align-items: center;
-}
-.hero-serviciotecnico .service-list{
-	width: 50%
-}
-
-
-.hero-serviciotecnico .service-list li {
-	text-transform: uppercase;
-	font-weight: 700;
-	margin: 0 0 30px 0;
-	padding: 0;
-	color: #000;
-	font-size: 32px;
-	line-height: 1em;
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.hero-serviciotecnico .service-list li::before {
-	content: url('../../images/Check.png') ;
-}
-
-.section-quien-soy__grid{
-	display: grid;
-	grid-template-columns: 200px 1fr;
-	align-items: center;
-}
-
-.section-quien-soy__grid h3, 
-.section-quien-soy__grid p {
-	margin: 0;
-}
-
-.section-quien-soy .display-title-2{
-	margin-bottom: 70px;
-}
-
-.section-quien-soy img {
-	width: 150px;
+.services .hacker-connection img {
 	height: 150px;
-	max-width: 100%;
-	margin-bottom: 0;
+	position: relative;
+	z-index: 20;
 }
 
-.section-quien-soy__social {
-	justify-content: flex-end;
-}
 
-.section-quien-soy__social img {
-	width: 300px;
-	height: 80px;
-	margin-top: 70px;
-}
-
-.section-proyectos h2 {
-	margin-bottom: 50px;
-	text-align: center;
-}
-
-.website-grid{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr ) ;
-	grid-template-rows: repeat(2, 403px);
-	gap: 20px;
-	height: auto;
-	margin: 20px 0 100px 0;
-}
-
-.proyectos-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(2, 403px);
-	gap: 20px;
-	height: auto;
-	margin: 20px 0;
-}
-
-.website-grid img,
-.proyectos-grid img {
+.services .hacker-connection .dotted-line-container{
 	width: 100%;
-	height: 100%;
-	max-width: 100%;
-	object-fit: contain;
+	position: absolute;
+	left: 0;
+	top: 30%;
+	display: flex;
+	justify-content: center;
+	z-index: 10;
 }
-.logo-header{
-	height: 70px;
-	display: block;
-	border: none;
+
+.services .hacker-connection .dotted-line{
+	border-top: dashed 5px #5a6fba;
+	width: 70%;
+	animation: linear infinite 1s dotted-progress;
 }
-.logo-header img {
-	width: 100%;
-	height: 70px;
-	max-width: 500px;
-	object-fit: contain;
+
+@keyframes dotted-progress {
+	from{
+		transform: translateX(0px);
+	}
+	to{
+		transform: translateX(30px);
+	}
 }
