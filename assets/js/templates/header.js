@@ -69,8 +69,7 @@ function dynamicNav( navCallaback ){
 
     const menuItems = [
         { href: "index.html", text: "Home" },
-        { href: "galeria.html", text: "Galeria" },
-        { href: "animaciones.html", text: "Animaciones" },
+        { href: "single.html", text: "Blog" },
         { href: "cotizar.html", text: "Cotizar" },
         { href: "contrato.html", text: "Geneardor de Contratos" },
     ];
@@ -90,15 +89,17 @@ function dynamicNav( navCallaback ){
         return urlAssets;
     }
 
+    
     getPageList()
     .then( res => {
         const { posts } = res;
+
         posts.forEach( post => {
             const item = {
                 href: `single.html?post=${post.file}`,
                 text: `${post.title}`
             };
-            menuItems.push(item);
+            //menuItems.push(item);
         } );
 
          const nav_html = `
@@ -110,6 +111,7 @@ function dynamicNav( navCallaback ){
             </div>
             <a class="close" href="#menu">Close</a>
             `;
+
             navCallaback( nav_html );
 
     } )
@@ -117,6 +119,7 @@ function dynamicNav( navCallaback ){
         console.error(err);
     }
     );
+    
 
    
 }

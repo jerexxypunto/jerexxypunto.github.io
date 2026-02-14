@@ -2,7 +2,8 @@
 import { getContent, getPageList } from './templates/header.js';
 
 if( location.pathname === '/single.html' ){
-    genericContentLoader();
+    loadWpPostLoader();
+    //genericContentLoader();
     loadPostsList();
 }
 
@@ -62,6 +63,61 @@ function ShowErrorMD( msg ){
     md_fallback += msg;
     const htmlContent = marked.parse(md_fallback);
     injectMdContent(htmlContent);
+}
+
+async function wordpressGetBlogPosts(){
+
+    // Traemos lista de post desde la api de GSC Diseños.
+    const domain = 'https://gscdisenos.net';
+    const url = `${domain}/wp-json/wp/v2/posts`;
+    const req = await fetch(url);
+    const res = await req.json();
+
+    // Extraemos los datos de los posts.
+    const posts = res.map( post => {
+        return {
+            id: post.id,
+            title: post.title.rendered,
+            content: post.content.rendered,
+            date: post.date,
+            excerpt: post.excerpt.rendered,
+        }
+    });
+
+    return posts;
+}
+
+function blogItemsBuilder( posts ){
+
+    let ul_wp_post = `<ul class="blogpost-list" >`;
+    posts.forEach( item => {
+        const { title, date, excerpt } = item;
+        const html = `<li> <div class="box" > <h4> ${title} </h4> <p>${excerpt}</p> </div> </li>`;
+        ul_wp_post = ul_wp_post + html;
+    } );
+
+    ul_wp_post = ul_wp_post + "</ul>";
+
+    const htmlContent = `
+    <h2>ABC Digital Blog</h2>
+    <main>${ul_wp_post}</main>`;
+
+    return htmlContent;
+}
+
+async function loadWpPostLoader(){
+
+   
+    // Traemos la lista de WP
+    const posts = await wordpressGetBlogPosts()
+
+    
+    // creamos una lista de posts en el DOM.
+    let ul_wp_post = blogItemsBuilder( posts );
+
+    // Insertamos en el DOM
+    injectMdContent(ul_wp_post);
+
 }
 
 function genericContentLoader() {

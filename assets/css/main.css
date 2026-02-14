@@ -3709,6 +3709,15 @@ img{
 	}
 }
 
+.blogpost-list{
+	list-style: none;
+}
+
+.blogpost-list li {
+	margin: 0;
+	padding: 0;
+}
+
 @keyframes dotted-progress {
 	from{
 		transform: translateX(0px);
