@@ -3683,10 +3683,26 @@ img{
 	z-index: 10;
 }
 
+
 .services .hacker-connection .dotted-line{
 	border-top: dashed 5px #5a6fba;
 	width: 85%;
 	animation: linear infinite 1s dotted-progress;
+}
+
+
+.container-center{
+	padding: 100px 0;
+	height: 812px;
+}
+
+
+.presentation{
+	text-align: center;
+
+	h3{
+		font-size: 40px;
+	}
 }
 
 @keyframes dotted-progress {
