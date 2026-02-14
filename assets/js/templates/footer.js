@@ -1,8 +1,8 @@
 import { render_stop_by } from './template_utils.js';
 
 const socialLinks = [
-    { href: "https://web.facebook.com/jeremias.sanmartin.52/", class: "icon brands style2 fa-facebook-f", label: "Facebook" },
-    { href: "https://www.instagram.com/thinker_existencial/?next=%2F", class: "icon brands style2 fa-instagram", label: "Instagram" },
+    { href: "https://web.facebook.com/people/GSC-Dise%C3%B1os/61588048430484/", class: "icon brands style2 fa-facebook-f", label: "Facebook" },
+    { href: "https://www.instagram.com/gscdesings/", class: "icon brands style2 fa-instagram", label: "Instagram" },
     { href: "https://jerexxypunto.github.io/", class: "icon brands style2 fa-github", label: "GitHub" },
     { href: "+56990055107", class: "icon solid style2 fa-phone", label: "Phone" },
     { href: "jerexxypunto@gmail.com", class: "icon solid style2 fa-envelope", label: "Email" }
@@ -68,7 +68,7 @@ function createContactForm() {
 }
 
 const footer_html = `
-    <div class="inner">
+    <div class="inner container">
         ${createContactForm()}
         <section>
             <h2>Follow</h2>
@@ -78,7 +78,7 @@ const footer_html = `
         </section>
         <ul class="copyright">
             <li>&copy; Jeremias San Martin. Todos los derechos reservados</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Design: <a href="https://gscdisenos.net/">GSC Diseños</a></li>
         </ul>
     </div>
 `;
