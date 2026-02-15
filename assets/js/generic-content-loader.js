@@ -2,8 +2,13 @@
 import { getContent, getPageList } from './templates/header.js';
 
 if( location.pathname === '/single.html' ){
-    loadWpPostLoader();
-    //genericContentLoader();
+
+    loadWpPostLoader().then( post => {
+        genericContentLoader(post);
+    } ).catch( e => {
+        console.log(e);
+    });
+    
     loadPostsList();
 }
 
@@ -65,13 +70,28 @@ function ShowErrorMD( msg ){
     injectMdContent(htmlContent);
 }
 
-async function wordpressGetBlogPosts(){
+async function wordpressGetBlogPosts( post_id = false ){
 
     // Traemos lista de post desde la api de GSC Diseños.
     const domain = 'https://gscdisenos.net';
-    const url = `${domain}/wp-json/wp/v2/posts`;
+    let url = `${domain}/wp-json/wp/v2/posts`;
+
+    if( post_id != false ){
+        url = `${url}/${post_id}`;
+    }
+
     const req = await fetch(url);
     const res = await req.json();
+
+    if( post_id != false ){
+        return {
+            id: res.id,
+            title: res.title.rendered,
+            content: res.content.rendered,
+            date: res.date,
+            excerpt: res.excerpt.rendered,
+        }
+    }
 
     // Extraemos los datos de los posts.
     const posts = res.map( post => {
@@ -91,8 +111,8 @@ function blogItemsBuilder( posts ){
 
     let ul_wp_post = `<ul class="blogpost-list" >`;
     posts.forEach( item => {
-        const { title, date, excerpt } = item;
-        const html = `<li> <div class="box" > <h4> ${title} </h4> <p>${excerpt}</p> </div> </li>`;
+        const { title, date, excerpt, id } = item;
+        const html = `<li> <div class="box" > <h4> ${title} </h4> <p>${excerpt}</p> <a class="button"  href="?post_id=${id}" > Ver más </a> </div> </li>`;
         ul_wp_post = ul_wp_post + html;
     } );
 
@@ -107,6 +127,11 @@ function blogItemsBuilder( posts ){
 
 async function loadWpPostLoader(){
 
+    const { search } = location;
+    if( search.includes("post_id") ){
+        return false;
+    }
+
    
     // Traemos la lista de WP
     const posts = await wordpressGetBlogPosts()
@@ -118,38 +143,56 @@ async function loadWpPostLoader(){
     // Insertamos en el DOM
     injectMdContent(ul_wp_post);
 
+    return posts
+
 }
 
-function genericContentLoader() {
+async function genericContentLoader(post) {
 
-    const getData = getPostFromUrl(location.href);
-    if( !getData ){
-        ShowErrorMD("No se han encontrado parámetros en la URL");
-        return;
+    const { origin, search, href } = location;
+
+    console.log("Entro");
+
+    // Si post_id esta en la URL
+    if (search.includes("post_id")) {
+        // Extrae de la url el parametro post_id
+        // Puede estar en la hash o en el search
+        // Ejemplo: #?post_id=1
+        let post_id = null;
+        // Buscamos en location.hash
+        const hashParamsMatch = search.match(/post_id=([^&]+)/);
+        if (hashParamsMatch && hashParamsMatch[1]) {
+            post_id = hashParamsMatch[1];
+        } else {
+            // Si no está en el hash, intentamos en el search
+            const searchParams = new URLSearchParams(location.search);
+            post_id = searchParams.get('post_id');
+        }
+
+        if (post_id) {
+
+            // Solicitamos a WP todo el POST
+            const selectedPost = await wordpressGetBlogPosts(post_id);
+
+
+
+            if (selectedPost) {
+                // Renderizar el post
+                const html = `
+                    <article class="blog-post" >
+                        <h2>${selectedPost.title}</h2>
+                        <div class="post-meta">${selectedPost.date ? new Date(selectedPost.date).toLocaleDateString() : ''}</div>
+                        <div class="post-content">${selectedPost.content}</div>
+                    </article>
+                `;
+                injectMdContent(html);
+            } else {
+                injectMdContent('<p>No se encontró el post solicitado.</p>');
+            }
+        } else {
+            injectMdContent('<p>post_id no especificado en la URL.</p>');
+        }
     }
-
-    const { post } = getData;
-    const file_path = `${post}.md`;
-
-    getContent( file_path )
-    .then( markdownContent => {
-
-        // Convertir Markdown a HTML
-        const htmlContent = marked.parse(markdownContent);
-        setTimeout( () => {
-            // Insertar el contenido en el DOM
-            injectMdContent(htmlContent);
-        }, 1000 );
-        
-        
-    })
-    .catch( err => {
-        let fileSearch = `Contenido **${post}** no encontrado. <br>`;
-        fileSearch += "Verifique que el archivo existe en la carpeta **/posts/**";
-        ShowErrorMD(fileSearch);
-    });
-
-
 }
 
 /**
