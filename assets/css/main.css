@@ -3718,6 +3718,16 @@ img{
 	padding: 0;
 }
 
+.portafolio-gal .item-contenido{
+	width: 100%;
+}
+
+.portafolio-gal .item-contenido img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+}
+
 @keyframes dotted-progress {
 	from{
 		transform: translateX(0px);
